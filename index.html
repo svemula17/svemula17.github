@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en" data-theme="purple" data-ui="dark">
+<html lang="en" data-ui="light">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sai Kumar Vemula | Cybersecurity Analyst</title>
+  <title>Sai Kumar Vemula — Cybersecurity Analyst</title>
   <meta name="description" content="Portfolio of Sai Kumar Vemula, Cybersecurity Analyst specializing in SOC, Cloud Security, and Threat Detection." />
-  
   <meta name="author" content="Sai Kumar Vemula" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://svemula17.github.io/" />
   <link rel="icon" type="image/jpeg" href="profile_new.jpg" />
 
@@ -24,511 +24,456 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=9" />
-  <link rel="stylesheet" href="polish.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 
 <body>
-  <canvas id="fx"></canvas>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="Home">Sai Kumar</a>
 
-  <section id="boot" class="boot2">
-    <div class="boot2Wrap">
-      <div class="boot2Title">PORTFOLIO LOADING<span class="dots">...</span></div>
-      <div class="boot2Panel"><pre id="bootText" class="boot2Log"></pre></div>
-      <div class="boot2Bar"><div id="bootBarFill" class="boot2BarFill"></div></div>
-      <div class="boot2Footer">
-        <div id="bootPct" class="boot2Pct">0%</div>
-        <div id="bootStatus" class="boot2Status">Initializing...</div>
-      </div>
-      <div class="boot2Hint">Press <b>Enter</b> to skip</div>
-    </div>
-  </section>
-
-  <div id="site" class="site hidden">
-    <header class="topbar cleanTopbar">
-      <a class="brand cleanBrand" href="#home" aria-label="Go to home">
-        <span class="brandMark">SV</span>
-        <span>Sai Kumar</span>
-      </a>
-
-      <nav class="navPill cleanNav" aria-label="Primary">
-        <a class="navLink active" href="#home">Home</a>
-        <a class="navLink" href="#about">About</a>
-        <a class="navLink" href="#experience">Experience</a>
-        <a class="navLink" href="#skills">Skills</a>
-        <a class="navLink" href="#projects">Projects</a>
-        <a class="navLink" href="#certifications">Certifications</a>
-        <a class="navLink" href="#contact">Contact</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <div class="headerTools">
-        <div class="modeToggleWrap compactMode" aria-label="Light dark mode toggle">
-          <span class="modeLabel">Light</span>
-          <label class="switch" title="Toggle Light/Dark">
-            <input id="uiToggle" type="checkbox" />
-            <span class="slider"></span>
-          </label>
-          <span class="modeLabel">Dark</span>
-        </div>
-        <div class="themeDots compactThemes" aria-label="Theme selector">
-          <button class="themeDot tRed" data-theme="red" aria-label="Red theme"></button>
-          <button class="themeDot tGreen" data-theme="green" aria-label="Green theme"></button>
-          <button class="themeDot tMono" data-theme="mono" aria-label="Black and white theme"></button>
-          <button class="themeDot tBlue" data-theme="blue" aria-label="Blue theme"></button>
-        </div>
-        <a class="headerResume" href="Sai_Kumar_Cybersecurity.pdf" download>Resume</a>
+      <div class="nav-tools">
+        <button id="modeToggle" class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="btn-pill" href="Sai_Kumar_Cybersecurity.pdf" download>Resume</a>
+        <button id="navToggle" class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <aside class="sectionRail" aria-label="Page progress">
-      <span class="railTrack"><span id="railFill" class="railFill"></span></span>
-      <a href="#home" data-rail="home" aria-label="Home"></a>
-      <a href="#about" data-rail="about" aria-label="About"></a>
-      <a href="#experience" data-rail="experience" aria-label="Experience"></a>
-      <a href="#skills" data-rail="skills" aria-label="Skills"></a>
-      <a href="#projects" data-rail="projects" aria-label="Projects"></a>
-      <a href="#certifications" data-rail="certifications" aria-label="Certifications"></a>
-      <a href="#contact" data-rail="contact" aria-label="Contact"></a>
-    </aside>
-
-    <main class="wrap premiumPortfolio">
-      <section id="home" class="hero premiumHero bgMode" data-bgmode="0">
-        <div class="heroCopy">
-          <p class="eyebrow">Cybersecurity Analyst | SOC | Cloud Security</p>
-          <h1>Sai Kumar Vemula</h1>
-          <p class="heroLead">
-            Practical security work across SOC investigations, cloud posture, vulnerability management,
-            and detection engineering, presented with clear evidence and clean execution.
-          </p>
-
-          <div class="targetRole glass hoverGlow">
-            <span>Open to roles in</span>
-            <strong>SOC Analysis, Cybersecurity Analysis, Cloud Security, and Threat Detection</strong>
-          </div>
-
-          <div class="heroActions">
-            <a class="btn primary" href="Sai_Kumar_Cybersecurity.pdf" download>Download Resume</a>
-            <a class="btn ghost" href="#projects">View Projects</a>
-            <a class="btn ghost" href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn ghost" href="https://www.linkedin.com/in/sai-kumar-vemula1/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn ghost" href="mailto:saikumarvemula.us@gmail.com">Email Me</a>
-          </div>
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow reveal">Cybersecurity Analyst · SOC · Cloud Security</p>
+        <h1 class="hero-title reveal">Sai Kumar Vemula</h1>
+        <p class="hero-lead reveal">
+          Practical security work across SOC investigations, cloud posture, vulnerability
+          management, and detection engineering — presented with clear evidence and
+          clean execution.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="btn-pill" href="Sai_Kumar_Cybersecurity.pdf" download>Download Resume</a>
+          <a class="btn-ghost" href="#projects">View Projects →</a>
         </div>
+      </div>
+    </section>
 
-        <aside class="heroPanel glass hoverGlow" aria-label="Portfolio summary">
-          <div class="panelStatus">
-            <span class="statusDot"></span>
-            Available for cybersecurity opportunities
-          </div>
-          <div class="roleLine compactRole">
-            <span class="rolePrefix">$</span>
-            <span id="rotatingRole" class="roleRotator"></span>
-            <span class="cursor">|</span>
-          </div>
-          <div class="socVisual" aria-label="SOC alert dashboard preview">
-            <div class="socVisualTop"><span>live-soc-feed</span><strong>healthy</strong></div>
-            <div class="socPulseMap"><span></span><span></span><span></span></div>
-            <div class="socRows">
-              <div><span class="sev high">High</span><p>Suspicious login pattern</p><strong>MITRE T1110</strong></div>
-              <div><span class="sev med">Med</span><p>Endpoint policy drift</p><strong>EDR</strong></div>
-              <div><span class="sev low">Low</span><p>Cloud config review</p><strong>AWS</strong></div>
-            </div>
-          </div>
-          <div class="miniTerminal" aria-label="Quick navigation terminal">
-            <div id="termBody" class="terminalBody" role="log" aria-live="polite"></div>
-            <form id="termForm" class="terminalInputRow" autocomplete="off">
-              <span class="prompt">sai:~$</span>
-              <input id="termInput" class="terminalInput" type="text" aria-label="Terminal command input" placeholder="try: experience" />
-            </form>
-          </div>
-          <div class="terminalSuggest cleanSuggest">
-            <button class="suggestBtn" data-cmd="about">about</button>
-            <button class="suggestBtn" data-cmd="experience">experience</button>
-            <button class="suggestBtn" data-cmd="projects">projects</button>
-            <button class="suggestBtn" data-cmd="certifications">certs</button>
-          </div>
-        </aside>
-      </section>
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat reveal"><div class="stat-num">4+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat reveal"><div class="stat-num">4</div><div class="stat-label">Roles Held</div></div>
+        <div class="stat reveal"><div class="stat-num">6</div><div class="stat-label">Security Projects</div></div>
+        <div class="stat reveal"><div class="stat-num">16+</div><div class="stat-label">Certifications</div></div>
+      </div>
+    </section>
 
-      <section class="statsBar cleanStats" aria-label="Portfolio metrics">
-        <div class="statsGrid">
-          <div class="statCard glass hoverGlow"><div class="statNum">4+</div><div class="statLabel">Years Experience</div></div>
-          <div class="statCard glass hoverGlow"><div class="statNum">4</div><div class="statLabel">Experience Areas</div></div>
-          <div class="statCard glass hoverGlow"><div class="statNum">6</div><div class="statLabel">Security Projects</div></div>
-          <div class="statCard glass hoverGlow"><div class="statNum">16+</div><div class="statLabel">Certifications</div></div>
-        </div>
-      </section>
-
-      <section id="about" class="section premiumSection bgMode" data-bgmode="0">
-        <div class="sectionHeading">
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head reveal">
           <p class="eyebrow">About</p>
-          <h2>About Me</h2>
+          <h2>A security analyst focused on practical, evidence-driven work.</h2>
         </div>
 
-        <div class="aboutPremiumGrid">
-          <div class="aboutPortrait glass hoverGlow">
-            <img src="profile_new.jpg" alt="Sai Kumar Vemula profile photo" loading="lazy" decoding="async" width="480" height="600" />
+        <div class="about-grid">
+          <div class="about-photo reveal">
+            <img src="profile_new.jpg" alt="Sai Kumar Vemula" loading="lazy" decoding="async" width="480" height="600" />
           </div>
-          <div class="aboutNarrative glass hoverGlow">
-            <div class="aboutSlideHeader">
-              <span class="aboutPanelEyebrow">Technical Snapshot</span>
-            </div>
-            <h3>Security work that stays practical, clear, and evidence-driven.</h3>
+          <div class="about-body reveal">
             <p>
-              I am a cybersecurity professional currently pursuing an M.S. in Cybersecurity at Yeshiva University.
-              My background spans SOC alert triage, incident investigation, vulnerability management, endpoint and
-              access support, and cloud security projects.
+              I am a cybersecurity professional currently pursuing an M.S. in Cybersecurity at
+              Yeshiva University. My background spans SOC alert triage, incident investigation,
+              vulnerability management, endpoint and access support, and cloud security projects.
             </p>
             <p>
-              I like security work that produces evidence: clean detections, clear investigation notes, prioritized
-              remediation, and tooling that helps analysts move faster without losing context.
+              I like security work that produces evidence: clean detections, clear investigation
+              notes, prioritized remediation, and tooling that helps analysts move faster without
+              losing context.
             </p>
-            <div class="aboutFocusGrid">
-              <div><span>Strength</span><strong>Detection and response</strong></div>
-              <div><span>Tools</span><strong>Splunk, Nessus, Qualys, AWS, Python</strong></div>
-              <div><span>Mindset</span><strong>Threat-aware, practical, documented</strong></div>
-            </div>
-          </div>
-        </div>
-        <div class="educationCard glass hoverGlow">
-          <p class="cardLabel">Education</p>
-          <div class="educationSplit">
-            <article class="eduMiniCard">
-              <span>Graduate</span>
-              <strong>M.S. Cybersecurity</strong>
-              <p>Yeshiva University, New York City</p>
-              <small>2024 - 2026 | CGPA: 3.9</small>
-            </article>
-            <article class="eduMiniCard">
-              <span>Undergraduate</span>
-              <strong>B.Tech Mechanical Engineering</strong>
-              <p>CMR College of Engineering and Technology, Hyderabad</p>
-              <small>2018 - 2021 | CGPA: 3.9</small>
-            </article>
-          </div>
-        </div>
-      </section>
 
-      <section id="experience" class="section premiumSection bgMode" data-bgmode="3">
-        <div class="sectionHeading splitHeading">
-          <div>
-            <p class="eyebrow">Experience</p>
-            <h2>Professional Experience</h2>
+            <dl class="about-meta">
+              <div><dt>Focus</dt><dd>Detection &amp; response</dd></div>
+              <div><dt>Tools</dt><dd>Splunk, Nessus, Qualys, AWS, Python</dd></div>
+              <div><dt>Location</dt><dd>New Jersey, USA</dd></div>
+              <div><dt>Open to</dt><dd>SOC · Cloud Security · Threat Detection</dd></div>
+            </dl>
           </div>
-          <p>Four roles across SOC operations, security engineering, IT support, and university IT service delivery.</p>
         </div>
 
-        <ul class="expList" aria-label="Experience timeline">
-          <li class="expRow" tabindex="0">
-            <span class="expDate">Jun 2025 <em>—</em> Present</span>
-            <div class="expMain">
-              <strong class="expCompany">Yeshiva University</strong>
-              <span class="expRole">Student Assistant — IT Department</span>
+        <div class="edu-grid reveal">
+          <article class="edu-card">
+            <p class="eyebrow">Graduate</p>
+            <h3>M.S. Cybersecurity</h3>
+            <p class="muted">Yeshiva University, New York City</p>
+            <p class="mono small">2024 – 2026 · CGPA 3.9</p>
+          </article>
+          <article class="edu-card">
+            <p class="eyebrow">Undergraduate</p>
+            <h3>B.Tech Mechanical Engineering</h3>
+            <p class="muted">CMR College of Engineering &amp; Technology, Hyderabad</p>
+            <p class="mono small">2018 – 2021 · CGPA 3.9</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Experience</p>
+          <h2>Four roles across SOC, security engineering, and IT support.</h2>
+        </div>
+
+        <ul class="exp-list">
+          <li class="exp-row reveal">
+            <div class="exp-meta">
+              <p class="mono small muted">Jun 2025 — Present</p>
+              <p class="exp-company">Yeshiva University</p>
             </div>
-            <div class="expPop" role="dialog" aria-label="Yeshiva University role details">
-              <p class="expPopSummary">Supporting campus IT operations through user support, troubleshooting, access assistance, and reliable service delivery.</p>
+            <div class="exp-body">
+              <h3>Student Assistant — IT Department</h3>
               <ul>
-                <li>Assist students, faculty, and staff with technical support requests across accounts, devices, applications, and campus systems.</li>
-                <li>Troubleshoot hardware, software, network connectivity, and access-related issues while documenting resolutions clearly.</li>
-                <li>Support IT service workflows with a security-aware mindset around account access, data handling, and timely escalation.</li>
+                <li>Assist students, faculty, and staff with technical support across accounts, devices, applications, and campus systems.</li>
+                <li>Troubleshoot hardware, software, and network connectivity issues while documenting resolutions clearly.</li>
+                <li>Support IT workflows with a security-aware mindset around account access, data handling, and timely escalation.</li>
               </ul>
-              <div class="tagRow"><span class="tagPill">IT Support</span><span class="tagPill">Troubleshooting</span><span class="tagPill">Access Support</span><span class="tagPill">Service Desk</span></div>
             </div>
           </li>
 
-          <li class="expRow" tabindex="0">
-            <span class="expDate">Mar 2023 <em>—</em> Apr 2025</span>
-            <div class="expMain">
-              <strong class="expCompany">Deloitte</strong>
-              <span class="expRole">Cybersecurity Analyst L1</span>
+          <li class="exp-row reveal">
+            <div class="exp-meta">
+              <p class="mono small muted">Mar 2023 — Apr 2025</p>
+              <p class="exp-company">Deloitte</p>
             </div>
-            <div class="expPop" role="dialog" aria-label="Deloitte role details">
-              <p class="expPopSummary">High-volume SOC operations, SIEM triage, investigations, and vulnerability lifecycle support.</p>
+            <div class="exp-body">
+              <h3>Cybersecurity Analyst L1</h3>
               <ul>
-                <li>Triaged 100+ daily alerts using Splunk SIEM and documented investigation outcomes.</li>
+                <li>Triaged 100+ daily alerts using Splunk SIEM and documented investigation outcomes for downstream analysts.</li>
                 <li>Investigated phishing, malware, unauthorized access, and suspicious authentication events.</li>
                 <li>Supported vulnerability assessment and remediation tracking with Nessus and Qualys.</li>
               </ul>
-              <div class="tagRow"><span class="tagPill">Splunk</span><span class="tagPill">Incident Response</span><span class="tagPill">Nessus</span><span class="tagPill">Qualys</span></div>
             </div>
           </li>
 
-          <li class="expRow" tabindex="0">
-            <span class="expDate">Aug 2022 <em>—</em> Feb 2023</span>
-            <div class="expMain">
-              <strong class="expCompany">Phoenix Business Consulting</strong>
-              <span class="expRole">Cybersecurity Engineer</span>
+          <li class="exp-row reveal">
+            <div class="exp-meta">
+              <p class="mono small muted">Aug 2022 — Feb 2023</p>
+              <p class="exp-company">Phoenix Business Consulting</p>
             </div>
-            <div class="expPop" role="dialog" aria-label="Phoenix Business Consulting role details">
-              <p class="expPopSummary">Network hardening, endpoint protection, DLP support, and vulnerability remediation.</p>
+            <div class="exp-body">
+              <h3>Cybersecurity Engineer</h3>
               <ul>
                 <li>Reviewed firewall rules and supported network security audit activities.</li>
-                <li>Helped coordinate patching and remediation cycles for identified vulnerabilities.</li>
+                <li>Coordinated patching and remediation cycles for identified vulnerabilities.</li>
                 <li>Configured endpoint protection and DLP controls to improve baseline security.</li>
               </ul>
-              <div class="tagRow"><span class="tagPill">Firewall Review</span><span class="tagPill">DLP</span><span class="tagPill">Endpoint Security</span><span class="tagPill">Patch Mgmt</span></div>
             </div>
           </li>
 
-          <li class="expRow" tabindex="0">
-            <span class="expDate">Jun 2021 <em>—</em> Jul 2022</span>
-            <div class="expMain">
-              <strong class="expCompany">Siddhartha Heavy Equipment</strong>
-              <span class="expRole">IT Support Technician</span>
+          <li class="exp-row reveal">
+            <div class="exp-meta">
+              <p class="mono small muted">Jun 2021 — Jul 2022</p>
+              <p class="exp-company">Siddhartha Heavy Equipment</p>
             </div>
-            <div class="expPop" role="dialog" aria-label="Siddhartha Heavy Equipment role details">
-              <p class="expPopSummary">Systems support foundation across identity, access, endpoint troubleshooting, and monitoring.</p>
+            <div class="exp-body">
+              <h3>IT Support Technician</h3>
               <ul>
                 <li>Resolved user support tickets involving hardware, software, and account access issues.</li>
                 <li>Managed user provisioning, access control, and Active Directory workflows.</li>
                 <li>Escalated system anomalies and reliability issues before they became larger incidents.</li>
               </ul>
-              <div class="tagRow"><span class="tagPill">Active Directory</span><span class="tagPill">Access Control</span><span class="tagPill">Troubleshooting</span><span class="tagPill">Monitoring</span></div>
             </div>
           </li>
         </ul>
-      </section>
-
-      <section id="skills" class="section premiumSection bgMode" data-bgmode="2">
-        <div class="sectionHeading">
-          <p class="eyebrow">Skills</p>
-          <h2>Technical Skills</h2>
-        </div>
-        <div class="skillBoard">
-          <article class="skillBlock glass hoverGlow"><div class="skillTop"><span class="skillIcon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span><span class="skillLevel">Advanced</span></div><h3>SOC Operations</h3><p class="skillUse">Splunk SIEM, alert triage, escalation context, investigation notes, and detection review.</p><div class="skillChips"><span>Splunk</span><span>Triage</span><span>Threat Hunting</span></div></article>
-          <article class="skillBlock glass hoverGlow"><div class="skillTop"><span class="skillIcon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg></span><span class="skillLevel">Advanced</span></div><h3>Vulnerability Management</h3><p class="skillUse">Nessus, Qualys, remediation follow-up, patch tracking, and risk prioritization.</p><div class="skillChips"><span>Nessus</span><span>Qualys</span><span>Nmap</span></div></article>
-          <article class="skillBlock glass hoverGlow"><div class="skillTop"><span class="skillIcon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span><span class="skillLevel">Practical</span></div><h3>Offensive Security Labs</h3><p class="skillUse">Burp Suite, OWASP testing, DVWA labs, and remediation-minded reporting.</p><div class="skillChips"><span>Burp Suite</span><span>DVWA</span><span>OWASP</span></div></article>
-          <article class="skillBlock glass hoverGlow"><div class="skillTop"><span class="skillIcon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg></span><span class="skillLevel">Advanced</span></div><h3>Cloud Security</h3><p class="skillUse">AWS-focused projects, posture thinking, cloud workflows, and secure build patterns.</p><div class="skillChips"><span>AWS</span><span>Cloud Labs</span><span>Security</span></div></article>
-          <article class="skillBlock glass hoverGlow"><div class="skillTop"><span class="skillIcon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></span><span class="skillLevel">Advanced</span></div><h3>Python Automation</h3><p class="skillUse">Security workflow scripting, analyst tooling, quick automation, and data handling.</p><div class="skillChips"><span>Python</span><span>Automation</span><span>Scripting</span></div></article>
-          <article class="skillBlock glass hoverGlow"><div class="skillTop"><span class="skillIcon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17L10 11 4 5"></path><line x1="12" y1="19" x2="20" y2="19"></line></svg></span><span class="skillLevel">Daily</span></div><h3>Linux and Systems</h3><p class="skillUse">Linux operations, shell usage, access support, troubleshooting, and environment setup.</p><div class="skillChips"><span>Linux</span><span>Bash</span><span>Support</span></div></article>
-        </div>
-      </section>
-
-      <section id="projects" class="section premiumSection projectScrollSection bgMode" data-bgmode="1">
-        <div class="sectionHeading splitHeading projectIntro">
-          <div>
-            <p class="eyebrow">Projects</p>
-            <h2>Security Projects</h2>
-          </div>
-          <p>Scroll through focused project stories with tools, outcomes, and links to the repositories.</p>
-        </div>
-
-        <div class="projectScroller" id="projectScroller">
-          <div class="projectViewport glass hoverGlow">
-            <div class="projectSlideTrack" id="projectSlideTrack">
-              <article class="projectSlide is-active" data-project="01">
-                <div class="projectSlideCopy">
-                  <p class="cardLabel">Featured Project</p>
-                  <h3>Smart SIEM Risk Engine</h3>
-                  <p>Built an end-to-end SOC platform that ingests raw threat data, normalizes alerts, scores risk with ML anomaly detection, maps MITRE TTPs, and streams events to a real-time analyst dashboard with 15+ tabs spanning incidents, hunting, kill-chain, IOCs, playbooks, and forecasting.</p>
-                  <div class="projectFacts"><span>AI Investigator chat (Claude)</span><span>MITRE ATT&CK heatmap + GeoIP map</span><span>Pivot search · SLA tracking · bulk ops</span><span>Downloadable incident reports</span></div>
-                  <div class="tagRow"><span class="tagPill">Python</span><span class="tagPill">FastAPI</span><span class="tagPill">WebSockets</span><span class="tagPill">SQLite</span><span class="tagPill">scikit-learn</span><span class="tagPill">Claude AI</span><span class="tagPill">Leaflet</span><span class="tagPill">MITRE</span></div>
-                  <div class="projectActions"><button class="pc-btn caseStudyBtn" type="button" data-case="siem">Case Study</button><a class="pc-btn" href="https://github.com/svemula17/smart-siem-risk-engine" target="_blank" rel="noreferrer">GitHub</a></div>
-                </div>
-                <div class="projectSlideVisual projectShot" aria-label="Smart SIEM dashboard">
-                  <img src="Smart Risk Engine.png" alt="Smart SIEM Risk Engine dashboard" loading="lazy">
-                </div>
-              </article>
-
-              <article class="projectSlide" data-project="02">
-                <div class="projectSlideCopy">
-                  <p class="cardLabel">Cloud Security</p>
-                  <h3>AI Cloud Posture Platform</h3>
-                  <p>Built a cloud security posture platform combined with deception assets that monitor exposure, study attacker discovery and movement patterns, and surface misconfiguration risk.</p>
-                  <div class="projectFacts"><span>Cloud deception</span><span>Attacker behavior research</span><span>Defensive security lab</span></div>
-                  <div class="tagRow"><span class="tagPill">AWS</span><span class="tagPill">Deception</span><span class="tagPill">Cloud Security</span></div>
-                  <div class="projectActions"><button class="pc-btn caseStudyBtn" type="button" data-case="cloud">Case Study</button><a class="pc-btn" href="https://github.com/saivarmadpr/Cloud_Security_Posture_-_Deception_Platform" target="_blank" rel="noreferrer">GitHub</a></div>
-                </div>
-                <div class="projectSlideVisual projectShot" aria-label="Cloud deception platform">
-                  <img src="cloud_posture.png" alt="Cloud posture platform screenshot" loading="lazy">
-                </div>
-              </article>
-
-              <article class="projectSlide" data-project="03">
-                <div class="projectSlideCopy">
-                  <p class="cardLabel">Offensive Lab</p>
-                  <h3>DVWA Vulnerability Testing Lab</h3>
-                  <p>Documented web vulnerability testing workflows across OWASP Top 10 categories, connecting exploit behavior with clear remediation notes and defensive takeaways.</p>
-                  <div class="projectFacts"><span>SQLi / XSS / CSRF</span><span>Burp Suite workflow</span><span>Remediation notes</span></div>
-                  <div class="tagRow"><span class="tagPill">OWASP</span><span class="tagPill">Burp Suite</span><span class="tagPill">DVWA</span></div>
-                  <div class="projectActions"><button class="pc-btn caseStudyBtn" type="button" data-case="dvwa">Case Study</button><a class="pc-btn" href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub</a></div>
-                </div>
-                <div class="projectSlideVisual projectTerminal"><div class="dvwa-terminal"><div class="dvwa-bar"><span class="dvwa-dot r"></span><span class="dvwa-dot y"></span><span class="dvwa-dot g"></span></div><div class="dvwa-lines"><div><span class="dvwa-prompt">$</span> <span class="dvwa-cmd">test OWASP_TOP_10</span></div><div><span class="dvwa-out">[+] SQLi, XSS, CSRF documented</span></div><div><span class="dvwa-prompt">$</span> <span class="dvwa-cmd">write remediation_notes.md</span></div></div></div></div>
-              </article>
-
-              <article class="projectSlide" data-project="04">
-                <div class="projectSlideCopy">
-                  <p class="cardLabel">Analysis Tool</p>
-                  <h3>Attack Identification Tool</h3>
-                  <p>Security-analysis tooling concept focused on turning attack indicators into clearer classifications for investigation and analyst decision-making.</p>
-                  <div class="projectFacts"><span>Attack classification</span><span>Analyst workflow</span><span>Detection logic</span></div>
-                  <div class="tagRow"><span class="tagPill">Detection</span><span class="tagPill">Analysis</span><span class="tagPill">Python</span></div>
-                  <div class="projectActions"><button class="pc-btn caseStudyBtn" type="button" data-case="attack">Case Study</button><a class="pc-btn" href="https://github.com/svemula17/attack_identification_tool" target="_blank" rel="noreferrer">GitHub</a></div>
-                </div>
-                <div class="projectSlideVisual projectShot" aria-label="Attack identification tool screenshot">
-                  <img src="attack_identification.png" alt="Attack identification tool screenshot" loading="lazy">
-                </div>
-              </article>
-
-              <article class="projectSlide" data-project="05">
-                <div class="projectSlideCopy">
-                  <p class="cardLabel">Serverless AI</p>
-                  <h3>AWS Image AI Tagging</h3>
-                  <p>Cloud-native image metadata workflow that applies AI-style tagging patterns to uploaded assets so files can be organized and searched more efficiently.</p>
-                  <div class="projectFacts"><span>Image upload flow</span><span>Metadata tagging</span><span>Cloud storage pattern</span></div>
-                  <div class="tagRow"><span class="tagPill">AWS</span><span class="tagPill">AI</span><span class="tagPill">Serverless</span></div>
-                  <div class="projectActions"><button class="pc-btn caseStudyBtn" type="button" data-case="image">Case Study</button><a class="pc-btn" href="https://github.com/PeterMangoro/cloudComputingDiscussion1" target="_blank" rel="noreferrer">GitHub</a></div>
-                </div>
-                <div class="projectSlideVisual projectShot" aria-label="Image tagging workflow screenshot">
-                  <img src="image_tagging.png" alt="Image tagging project screenshot" loading="lazy">
-                </div>
-              </article>
-
-              <article class="projectSlide" data-project="06">
-                <div class="projectSlideCopy">
-                  <p class="cardLabel">Serverless Pipeline</p>
-                  <h3>AWS Sentiment Analysis</h3>
-                  <p>Built an AWS free-tier sentiment platform that processes CSV/JSON/TXT feedback, stores results in DynamoDB, visualizes trends, and alerts on negative sentiment.</p>
-                  <div class="projectFacts"><span>S3 + Lambda + DynamoDB</span><span>Nuxt/Vue dashboard</span><span>SNS alerts</span></div>
-                  <div class="tagRow"><span class="tagPill">AWS Lambda</span><span class="tagPill">DynamoDB</span><span class="tagPill">Vue</span></div>
-                  <div class="projectActions"><button class="pc-btn caseStudyBtn" type="button" data-case="sentiment">Case Study</button><a class="pc-btn" href="https://github.com/PeterMangoro/cloudComputingDiscussion1" target="_blank" rel="noreferrer">GitHub</a></div>
-                </div>
-                <div class="projectSlideVisual projectShot" aria-label="Sentiment dashboard screenshot">
-                  <img src="sentiment_analysis.png" alt="Sentiment analysis dashboard" loading="lazy">
-                </div>
-              </article>
-            </div>
-
-            <div class="projectProgress" aria-hidden="true">
-              <span>Scroll</span>
-              <button class="projectDot is-active" data-slide="0" aria-label="Show project 1"></button>
-              <button class="projectDot" data-slide="1" aria-label="Show project 2"></button>
-              <button class="projectDot" data-slide="2" aria-label="Show project 3"></button>
-              <button class="projectDot" data-slide="3" aria-label="Show project 4"></button>
-              <button class="projectDot" data-slide="4" aria-label="Show project 5"></button>
-              <button class="projectDot" data-slide="5" aria-label="Show project 6"></button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="certifications" class="section premiumSection bgMode" data-bgmode="4">
-        <div class="certPanel glass hoverGlow">
-          <div class="certTop">
-            <div>
-              <p class="certEyebrow"><span></span> Certifications</p>
-              <h2>Certifications</h2>
-              <p>Compact proof of hands-on security, cloud, Linux, and automation learning.</p>
-            </div>
-            <div class="certBadgeArt" aria-hidden="true"><div class="certRings"><span></span><span></span><span></span></div><div class="certIcon">CERT</div></div>
-          </div>
-
-          <div class="certGridFeatured">
-            <a class="certRow hoverGlow" href="Comptia.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Comptia.jpg" alt="CompTIA Security+ certificate"><div><h3>CompTIA Security+</h3><p>CompTIA | View certificate</p></div></a>
-            <a class="certRow hoverGlow" href="Google cert_page-0001.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Google cert_page-0001.jpg" alt="Google Cybersecurity certificate"><div><h3>Google Cybersecurity Professional Certificate</h3><p>Google | View certificate</p></div></a>
-            <a class="certRow hoverGlow" href="Soc.png" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Soc.png" alt="Hands-on SOC Lab certificate"><div><h3>Hands-on SOC Lab Program</h3><p>SOC Experts | View certificate</p></div></a>
-            <a class="certRow hoverGlow" href="blob.png" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="blob.png" alt="Red Hat certificate"><div><h3>Red Hat System Administration I</h3><p>Red Hat RH124 | View certificate</p></div></a>
-          </div>
-
-          <button id="certToggle" class="certToggle btn ghost" type="button" aria-expanded="false" aria-controls="certMore">View all certifications</button>
-          <div id="certMore" class="certMore" hidden>
-            <div class="certGridFeatured certGridMore">
-              <a class="certRow hoverGlow" href="ISc2.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="ISc2.jpg" alt="ISC2 certificate"><div><h3>Certified in Cybersecurity Specialization</h3><p>(ISC)2 / Coursera | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Automate.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Automate.jpg" alt="Python automation certificate"><div><h3>Automate Cybersecurity Tasks with Python</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="foundations.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="foundations.jpg" alt="Foundations of Cybersecurity certificate"><div><h3>Foundations of Cybersecurity</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Play it_page-0001.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Play it_page-0001.jpg" alt="Play It Safe certificate"><div><h3>Play It Safe: Manage Security Risks</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Connect.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Connect.jpg" alt="Connect and Protect Networks certificate"><div><h3>Connect and Protect Networks</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Tools.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Tools.jpg" alt="Linux and SQL certificate"><div><h3>Tools of the Trade: Linux and SQL</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Assets.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Assets.jpg" alt="Assets threats and vulnerabilities certificate"><div><h3>Assets, Threats, and Vulnerabilities</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Sound.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Sound.jpg" alt="Detection and response certificate"><div><h3>Sound the Alarm: Detection and Response</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Incident.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Incident.jpg" alt="Incident response certificate"><div><h3>Incident Response, BC, and DR Concepts</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Access.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Access.jpg" alt="Access control certificate"><div><h3>Access Control Concepts</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Security.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Security.jpg" alt="Security operations certificate"><div><h3>Security Operations</h3><p>Google | View certificate</p></div></a>
-              <a class="certRow hoverGlow" href="Put.jpg" target="_blank" rel="noreferrer"><img loading="lazy" decoding="async" width="120" height="80" src="Put.jpg" alt="Prepare for cybersecurity jobs certificate"><div><h3>Put It to Work: Prepare for Cybersecurity Jobs</h3><p>Google | View certificate</p></div></a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section premiumSection contactSection bgMode" data-bgmode="6">
-        <div class="contactBand contactMePanel glass hoverGlow">
-          <div class="contactCopy">
-            <p class="eyebrow">Contact Me</p>
-            <h2>Let us build safer systems together.</h2>
-            <p>
-              I am available for SOC analyst, cybersecurity analyst, cloud security, IT security, and threat detection roles.
-              If my background fits your team, send me a message and I will respond quickly.
-            </p>
-          </div>
-          <div class="contactActions contactActionGrid">
-            <a class="btn primary contactEmail" href="mailto:saikumarvemula.us@gmail.com">Email Me</a>
-            <button class="btn ghost copyBtn" data-copy="saikumarvemula.us@gmail.com">Copy Email</button>
-            <a class="btn ghost" href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn ghost" href="https://www.linkedin.com/in/sai-kumar-vemula1/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn ghost" href="Sai_Kumar_Cybersecurity.pdf" download>Resume</a>
-          </div>
-          <div class="roleTargetNote">
-            I am looking for SOC Analyst, Cybersecurity Analyst, Cloud Security, and Threat Detection roles where I can investigate real alerts, document clearly, and build practical security workflows.
-          </div>
-          <div class="contactMeta" aria-label="Contact details">
-            <span>saikumarvemula.us@gmail.com</span>
-            <span>New Jersey, USA</span>
-            <span>linkedin.com/in/sai-kumar-vemula1</span>
-            <span>Open to cybersecurity opportunities</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="rolesArtBand" aria-label="Cybersecurity role focus">
-        <div class="rolesArtPanel glass hoverGlow">
-          <p class="eyebrow">Cybersecurity Roles</p>
-          <h2>Focused on analyst, cloud security, and threat detection roles that need practical execution.</h2>
-          <div class="rolesArtGrid">
-            <span>SOC Analyst</span>
-            <span>Cybersecurity Analyst</span>
-            <span>Cloud Security Analyst</span>
-            <span>Threat Detection</span>
-            <span>Detection Engineering</span>
-            <span>Incident Response</span>
-            <span>Vulnerability Analyst</span>
-            <span>Security Operations</span>
-          </div>
-        </div>
-      </section>
-
-      <div class="caseModal" id="caseModal" aria-hidden="true" role="dialog" aria-labelledby="caseModalTitle">
-        <div class="caseModalBackdrop" data-close-case></div>
-        <article class="caseModalCard glass">
-          <button class="caseClose" type="button" data-close-case aria-label="Close case study">×</button>
-          <p class="cardLabel" id="caseModalLabel">Case Study</p>
-          <h2 id="caseModalTitle">Project Title</h2>
-          <div class="caseModalGrid">
-            <section><h3>Problem</h3><p id="caseProblem"></p></section>
-            <section><h3>What I Built</h3><p id="caseBuilt"></p></section>
-            <section><h3>Tools</h3><p id="caseTools"></p></section>
-            <section><h3>Outcome</h3><p id="caseOutcome"></p></section>
-          </div>
-          <a class="btn primary" id="caseLink" href="#" target="_blank" rel="noreferrer">Open Repository</a>
-        </article>
       </div>
+    </section>
 
-      <footer class="footer cleanFooter">
-        <div class="footerInner">
-          <div class="footerBrand"><span class="brandMark mini">SV</span><div><div class="footerName">Sai Kumar Vemula</div><div class="footerRole">Cybersecurity Analyst</div></div></div>
-          <div class="footerRight"><a class="footerLink" href="#home">Home</a><a class="footerLink" href="#experience">Experience</a><a class="footerLink" href="#projects">Projects</a><a class="footerLink" href="#contact">Contact</a></div>
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Skills</p>
+          <h2>Tools and disciplines I work with day to day.</h2>
         </div>
-        <div class="footerCopy">© <span id="year"></span> Sai Kumar Vemula. Built with HTML/CSS/JS.</div>
-      </footer>
 
-      <button id="toTop" class="toTop" aria-label="Scroll to top">↑</button>
-    </main>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <span class="skill-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <h3>SOC Operations</h3>
+            <p>Splunk SIEM, alert triage, escalation context, investigation notes, and detection review.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+            <h3>Vulnerability Management</h3>
+            <p>Nessus, Qualys, remediation follow-up, patch tracking, and risk prioritization.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+            <h3>Offensive Labs</h3>
+            <p>Burp Suite, OWASP Top 10 testing, DVWA labs, and remediation-minded reporting.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg></span>
+            <h3>Cloud Security</h3>
+            <p>AWS-focused projects, posture thinking, cloud workflows, and secure build patterns.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <h3>Python Automation</h3>
+            <p>Security workflow scripting, analyst tooling, automation, and data handling.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="skill-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+            <h3>Linux &amp; Systems</h3>
+            <p>Linux operations, shell usage, access support, troubleshooting, and environment setup.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Projects</p>
+          <h2>Selected security projects, with tools and outcomes.</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <a class="project-shot" href="#" data-case="siem" aria-label="Open Smart SIEM Risk Engine case study">
+              <img src="Smart Risk Engine.png" alt="Smart SIEM Risk Engine dashboard" loading="lazy">
+            </a>
+            <div class="project-body">
+              <p class="eyebrow">Featured</p>
+              <h3>Smart SIEM Risk Engine</h3>
+              <p>End-to-end SOC platform — ingestion, risk scoring with ML anomaly detection, MITRE ATT&amp;CK mapping, and a 15-tab real-time dashboard.</p>
+              <div class="project-links">
+                <button class="link-btn" type="button" data-case="siem">Case study →</button>
+                <a class="link-btn" href="https://github.com/svemula17/smart-siem-risk-engine" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a class="project-shot" href="#" data-case="cloud" aria-label="Open AI Cloud Posture Platform case study">
+              <img src="cloud_posture.png" alt="Cloud posture platform screenshot" loading="lazy">
+            </a>
+            <div class="project-body">
+              <p class="eyebrow">Cloud Security</p>
+              <h3>AI Cloud Posture Platform</h3>
+              <p>Cloud security posture with deception assets that monitor exposure and study attacker discovery and movement patterns.</p>
+              <div class="project-links">
+                <button class="link-btn" type="button" data-case="cloud">Case study →</button>
+                <a class="link-btn" href="https://github.com/saivarmadpr/Cloud_Security_Posture_-_Deception_Platform" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a class="project-shot" href="#" data-case="dvwa" aria-label="Open DVWA Lab case study">
+              <img src="attack_identification.png" alt="DVWA testing lab" loading="lazy">
+            </a>
+            <div class="project-body">
+              <p class="eyebrow">Offensive Lab</p>
+              <h3>DVWA Vulnerability Testing Lab</h3>
+              <p>Documented web vulnerability testing across OWASP Top 10 categories, connecting exploit behavior with clear remediation notes.</p>
+              <div class="project-links">
+                <button class="link-btn" type="button" data-case="dvwa">Case study →</button>
+                <a class="link-btn" href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a class="project-shot" href="#" data-case="attack" aria-label="Open Attack Identification Tool case study">
+              <img src="attack_identification.png" alt="Attack identification tool screenshot" loading="lazy">
+            </a>
+            <div class="project-body">
+              <p class="eyebrow">Analysis Tool</p>
+              <h3>Attack Identification Tool</h3>
+              <p>Security-analysis tooling that turns attack indicators into clearer classifications for investigation and analyst decision-making.</p>
+              <div class="project-links">
+                <button class="link-btn" type="button" data-case="attack">Case study →</button>
+                <a class="link-btn" href="https://github.com/svemula17/attack_identification_tool" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a class="project-shot" href="#" data-case="image" aria-label="Open AWS Image AI Tagging case study">
+              <img src="image_tagging.png" alt="Image tagging project screenshot" loading="lazy">
+            </a>
+            <div class="project-body">
+              <p class="eyebrow">Serverless AI</p>
+              <h3>AWS Image AI Tagging</h3>
+              <p>Cloud-native image metadata workflow applying AI tagging patterns so uploaded assets can be organized and searched efficiently.</p>
+              <div class="project-links">
+                <button class="link-btn" type="button" data-case="image">Case study →</button>
+                <a class="link-btn" href="https://github.com/PeterMangoro/cloudComputingDiscussion1" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <a class="project-shot" href="#" data-case="sentiment" aria-label="Open AWS Sentiment Analysis case study">
+              <img src="sentiment_analysis.png" alt="Sentiment analysis dashboard" loading="lazy">
+            </a>
+            <div class="project-body">
+              <p class="eyebrow">Serverless Pipeline</p>
+              <h3>AWS Sentiment Analysis</h3>
+              <p>Free-tier AWS platform that processes CSV/JSON/TXT feedback, stores results in DynamoDB, visualizes trends, and alerts on negative sentiment.</p>
+              <div class="project-links">
+                <button class="link-btn" type="button" data-case="sentiment">Case study →</button>
+                <a class="link-btn" href="https://github.com/PeterMangoro/cloudComputingDiscussion1" target="_blank" rel="noreferrer">GitHub →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Certifications</p>
+          <h2>Hands-on security, cloud, Linux, and automation credentials.</h2>
+        </div>
+
+        <div class="cert-grid">
+          <a class="cert-card reveal" href="Comptia.jpg" target="_blank" rel="noreferrer">
+            <img src="Comptia.jpg" alt="CompTIA Security+ certificate" loading="lazy" width="120" height="80">
+            <div><h3>CompTIA Security+</h3><p class="muted small">CompTIA</p></div>
+          </a>
+          <a class="cert-card reveal" href="Google cert_page-0001.jpg" target="_blank" rel="noreferrer">
+            <img src="Google cert_page-0001.jpg" alt="Google Cybersecurity certificate" loading="lazy" width="120" height="80">
+            <div><h3>Google Cybersecurity Pro</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card reveal" href="Soc.png" target="_blank" rel="noreferrer">
+            <img src="Soc.png" alt="Hands-on SOC Lab certificate" loading="lazy" width="120" height="80">
+            <div><h3>Hands-on SOC Lab</h3><p class="muted small">SOC Experts</p></div>
+          </a>
+          <a class="cert-card reveal" href="blob.png" target="_blank" rel="noreferrer">
+            <img src="blob.png" alt="Red Hat certificate" loading="lazy" width="120" height="80">
+            <div><h3>Red Hat RH124</h3><p class="muted small">Red Hat</p></div>
+          </a>
+        </div>
+
+        <button id="certToggle" class="cert-toggle" type="button" aria-expanded="false" aria-controls="certMore">View all certifications →</button>
+
+        <div id="certMore" class="cert-grid cert-grid-more" hidden>
+          <a class="cert-card" href="ISc2.jpg" target="_blank" rel="noreferrer">
+            <img src="ISc2.jpg" alt="ISC2 certificate" loading="lazy" width="120" height="80">
+            <div><h3>Certified in Cybersecurity Specialization</h3><p class="muted small">(ISC)² / Coursera</p></div>
+          </a>
+          <a class="cert-card" href="Automate.jpg" target="_blank" rel="noreferrer">
+            <img src="Automate.jpg" alt="Python automation certificate" loading="lazy" width="120" height="80">
+            <div><h3>Automate Cybersecurity Tasks with Python</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="foundations.jpg" target="_blank" rel="noreferrer">
+            <img src="foundations.jpg" alt="Foundations of Cybersecurity certificate" loading="lazy" width="120" height="80">
+            <div><h3>Foundations of Cybersecurity</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Play it_page-0001.jpg" target="_blank" rel="noreferrer">
+            <img src="Play it_page-0001.jpg" alt="Play It Safe certificate" loading="lazy" width="120" height="80">
+            <div><h3>Play It Safe: Manage Security Risks</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Connect.jpg" target="_blank" rel="noreferrer">
+            <img src="Connect.jpg" alt="Connect and Protect Networks certificate" loading="lazy" width="120" height="80">
+            <div><h3>Connect and Protect Networks</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Tools.jpg" target="_blank" rel="noreferrer">
+            <img src="Tools.jpg" alt="Linux and SQL certificate" loading="lazy" width="120" height="80">
+            <div><h3>Tools of the Trade: Linux &amp; SQL</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Assets.jpg" target="_blank" rel="noreferrer">
+            <img src="Assets.jpg" alt="Assets threats and vulnerabilities certificate" loading="lazy" width="120" height="80">
+            <div><h3>Assets, Threats &amp; Vulnerabilities</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Sound.jpg" target="_blank" rel="noreferrer">
+            <img src="Sound.jpg" alt="Detection and response certificate" loading="lazy" width="120" height="80">
+            <div><h3>Sound the Alarm: Detection &amp; Response</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Incident.jpg" target="_blank" rel="noreferrer">
+            <img src="Incident.jpg" alt="Incident response certificate" loading="lazy" width="120" height="80">
+            <div><h3>Incident Response, BC &amp; DR Concepts</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Access.jpg" target="_blank" rel="noreferrer">
+            <img src="Access.jpg" alt="Access control certificate" loading="lazy" width="120" height="80">
+            <div><h3>Access Control Concepts</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Security.jpg" target="_blank" rel="noreferrer">
+            <img src="Security.jpg" alt="Security operations certificate" loading="lazy" width="120" height="80">
+            <div><h3>Security Operations</h3><p class="muted small">Google</p></div>
+          </a>
+          <a class="cert-card" href="Put.jpg" target="_blank" rel="noreferrer">
+            <img src="Put.jpg" alt="Prepare for cybersecurity jobs certificate" loading="lazy" width="120" height="80">
+            <div><h3>Put It to Work: Prepare for Jobs</h3><p class="muted small">Google</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container contact-inner">
+        <p class="eyebrow reveal">Contact</p>
+        <h2 class="reveal">Let's talk.</h2>
+        <p class="contact-lead reveal">
+          I am available for SOC analyst, cybersecurity analyst, cloud security,
+          and threat detection roles. If my background fits your team, send a message
+          and I will respond quickly.
+        </p>
+        <div class="contact-actions reveal">
+          <a class="btn-pill" href="mailto:saikumarvemula.us@gmail.com">Email me</a>
+          <button class="btn-ghost copy-btn" data-copy="saikumarvemula.us@gmail.com">Copy email</button>
+          <a class="btn-ghost" href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn-ghost" href="https://www.linkedin.com/in/sai-kumar-vemula1/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+        <p class="mono small muted reveal">saikumarvemula.us@gmail.com · New Jersey, USA</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Sai Kumar Vemula</p>
+      <div class="footer-links">
+        <a href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/sai-kumar-vemula1/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:saikumarvemula.us@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="case-modal" id="caseModal" aria-hidden="true" role="dialog" aria-labelledby="caseModalTitle">
+    <div class="case-modal-backdrop" data-close-case></div>
+    <article class="case-modal-card">
+      <button class="case-close" type="button" data-close-case aria-label="Close case study">×</button>
+      <p class="eyebrow" id="caseModalLabel">Case Study</p>
+      <h2 id="caseModalTitle">Project Title</h2>
+      <div class="case-grid">
+        <section><h3>Problem</h3><p id="caseProblem"></p></section>
+        <section><h3>What I built</h3><p id="caseBuilt"></p></section>
+        <section><h3>Tools</h3><p id="caseTools"></p></section>
+        <section><h3>Outcome</h3><p id="caseOutcome"></p></section>
+      </div>
+      <a class="btn-pill" id="caseLink" href="#" target="_blank" rel="noreferrer">Open repository →</a>
+    </article>
   </div>
 
-  <script src="boot.js"></script>
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
-
 </html>
