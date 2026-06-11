@@ -60,7 +60,26 @@
     onScrollSpy();
   }
 
-  /* ----- Reveal on scroll ----- */
+  /* ----- Auto-add reveal class to grouped items ----- */
+  document.querySelectorAll(".stat, .skill-card, .cert-card, .edu-card, .exp-row, .about-photo, .about-body")
+    .forEach(el => {
+      if (!el.classList.contains("reveal")) el.classList.add("reveal");
+    });
+
+  /* ----- Staggered reveals for grid children ----- */
+  const STAGGER_MS = 80;
+  [".stats-grid", ".skills-grid", ".cert-grid", ".exp-list"]
+    .forEach(sel => {
+      document.querySelectorAll(sel).forEach(grid => {
+        [...grid.children].forEach((child, i) => {
+          if (child.classList.contains("reveal")) {
+            child.style.transitionDelay = `${i * STAGGER_MS}ms`;
+          }
+        });
+      });
+    });
+
+  /* ----- Reveal on scroll (single observer) ----- */
   const reveal = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && reveal.length) {
     const io = new IntersectionObserver((entries) => {
@@ -76,28 +95,38 @@
     reveal.forEach(el => el.classList.add("in-view"));
   }
 
-  /* ----- Auto-reveal commonly grouped items ----- */
-  document.querySelectorAll(".stat, .skill-card, .project-card, .cert-card, .edu-card, .exp-row, .about-photo, .about-body")
-    .forEach(el => {
-      if (!el.classList.contains("reveal")) {
-        el.classList.add("reveal");
-      }
-    });
-  document.querySelectorAll(".reveal:not(.in-view)").forEach(el => {
-    if ("IntersectionObserver" in window) {
-      const ob = new IntersectionObserver((entries, o) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in-view");
-            o.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-      ob.observe(el);
-    } else {
-      el.classList.add("in-view");
-    }
-  });
+  /* ----- Stat number count-up ----- */
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const countTargets = document.querySelectorAll("[data-count-to]");
+
+  function animateCount(el) {
+    const target = parseInt(el.dataset.countTo, 10) || 0;
+    const suffix = el.dataset.suffix || "";
+    if (prefersReducedMotion) { el.textContent = target + suffix; return; }
+    const duration = 1200;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      el.textContent = Math.round(target * eased) + (t === 1 ? suffix : "");
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  if ("IntersectionObserver" in window && countTargets.length) {
+    const countIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    countTargets.forEach(el => countIO.observe(el));
+  } else {
+    countTargets.forEach(animateCount);
+  }
 
   /* ----- Copy email button ----- */
   document.querySelectorAll(".copy-btn").forEach(btn => {
@@ -151,29 +180,21 @@
       outcome: "Improved offensive-security understanding that translates directly into clearer defensive recommendations.",
       link: "https://github.com/svemula17"
     },
-    attack: {
-      title: "Attack Identification Tool",
-      problem: "Analysts need clearer ways to turn indicators and observed behavior into attack classifications they can investigate.",
-      built: "A security-analysis tooling concept focused on organizing attack signals into cleaner classifications and analyst-friendly output.",
-      tools: "Python, detection logic, classification workflow, security analysis documentation.",
-      outcome: "A portfolio-ready detection support concept that complements SOC triage and investigation workflows.",
-      link: "https://github.com/svemula17/attack_identification_tool"
-    },
     image: {
       title: "AWS Image AI Tagging",
       problem: "Uploaded image assets become difficult to organize and search without useful metadata extraction.",
       built: "A cloud-native image workflow using upload, tagging, and searchable metadata patterns for asset organization.",
-      tools: "AWS storage patterns, metadata tagging, serverless workflow concepts.",
+      tools: "AWS S3, Lambda, metadata tagging, serverless workflow concepts.",
       outcome: "A clearer pattern for searchable cloud-hosted media assets and automated metadata enrichment.",
-      link: "https://github.com/PeterMangoro/cloudComputingDiscussion1"
+      link: ""
     },
-    sentiment: {
-      title: "AWS Sentiment Analysis System",
-      problem: "Teams receive large volumes of feedback that are slow to manually review, especially when negative sentiment needs fast attention.",
-      built: "A serverless AWS system that processes CSV/JSON/TXT feedback through Lambda, stores results in DynamoDB, displays trends in a Nuxt/Vue dashboard, and sends SNS alerts.",
-      tools: "AWS S3, Lambda, DynamoDB, API Gateway, SNS, CloudWatch, Nuxt/Vue, Chart.js, Tailwind CSS.",
-      outcome: "A free-tier optimized platform with real-time insights, exportable results, and negative sentiment alerts.",
-      link: "https://github.com/PeterMangoro/cloudComputingDiscussion1"
+    pentest: {
+      title: "AI Pen-Test Agent",
+      problem: "Manual penetration testing is slow and inconsistent — analysts need an AI-assisted workflow that suggests next steps, summarizes evidence, and keeps a clean audit trail.",
+      built: "An AI agent that assists with reconnaissance, vulnerability mapping, exploit suggestion, and report generation across web and infrastructure targets. The agent reasons over scan output, proposes test cases, and writes findings into a structured report.",
+      tools: "Python, Claude API, recon/scan toolchain (nmap, nuclei), web fuzzing, MITRE ATT&CK mapping.",
+      outcome: "Faster pen-test triage and consistent reporting. Hands off cleanly to SOC and red-team workflows.",
+      link: "https://github.com/svemula17/pentest-agent"
     }
   };
 
@@ -195,7 +216,14 @@
     if (caseBuilt) caseBuilt.textContent = data.built;
     if (caseTools) caseTools.textContent = data.tools;
     if (caseOutcome) caseOutcome.textContent = data.outcome;
-    if (caseLink) caseLink.href = data.link;
+    if (caseLink) {
+      if (data.link) {
+        caseLink.href = data.link;
+        caseLink.style.display = "";
+      } else {
+        caseLink.style.display = "none";
+      }
+    }
     caseModal.classList.add("open");
     caseModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("case-modal-open");
@@ -221,6 +249,40 @@
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && caseModal?.classList.contains("open")) closeCase();
   });
+
+  /* ----- Sticky-scroll projects ----- */
+  const projScroller = document.querySelector(".proj-scroller");
+  const projSlides = [...document.querySelectorAll(".proj-slide")];
+  const projNum = document.querySelector(".proj-num");
+  const projBarFill = document.querySelector(".proj-bar span");
+
+  function syncProjects() {
+    if (!projScroller || !projSlides.length) return;
+    // Disable sticky behavior at narrow widths — CSS already stacks them
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      projSlides.forEach(s => s.classList.add("is-active"));
+      return;
+    }
+    const rect = projScroller.getBoundingClientRect();
+    const total = projScroller.offsetHeight - window.innerHeight;
+    const progress = Math.max(0, Math.min(1, -rect.top / Math.max(total, 1)));
+    const count = projSlides.length;
+    // Slight offset so the LAST slide doesn't only show at exactly progress=1
+    const idx = Math.min(count - 1, Math.floor(progress * count * 0.999));
+    projSlides.forEach((slide, i) => slide.classList.toggle("is-active", i === idx));
+    if (projBarFill) projBarFill.style.width = `${progress * 100}%`;
+    if (projNum) {
+      const cur = String(idx + 1).padStart(2, "0");
+      const tot = String(count).padStart(2, "0");
+      projNum.textContent = `${cur} / ${tot}`;
+    }
+  }
+
+  if (projScroller && projSlides.length) {
+    window.addEventListener("scroll", syncProjects, { passive: true });
+    window.addEventListener("resize", syncProjects);
+    syncProjects();
+  }
 
   /* ----- Footer year ----- */
   const yearEl = document.getElementById("year");
