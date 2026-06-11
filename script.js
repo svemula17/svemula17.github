@@ -61,14 +61,14 @@
   }
 
   /* ----- Auto-add reveal class to grouped items ----- */
-  document.querySelectorAll(".stat, .skill-card, .cert-card, .edu-card, .exp-row, .about-photo, .about-body")
+  document.querySelectorAll(".stat, .skill-card, .cert-card, .edu-card, .about-photo, .about-body")
     .forEach(el => {
       if (!el.classList.contains("reveal")) el.classList.add("reveal");
     });
 
   /* ----- Staggered reveals for grid children ----- */
   const STAGGER_MS = 80;
-  [".stats-grid", ".skills-grid", ".cert-grid", ".exp-list"]
+  [".stats-grid", ".skills-grid", ".cert-grid"]
     .forEach(sel => {
       document.querySelectorAll(sel).forEach(grid => {
         [...grid.children].forEach((child, i) => {
@@ -282,6 +282,37 @@
     window.addEventListener("scroll", syncProjects, { passive: true });
     window.addEventListener("resize", syncProjects);
     syncProjects();
+  }
+
+  /* ----- Sticky-scroll experience + year rail ----- */
+  const expScroller = document.querySelector(".exp-scroller");
+  const expSlides = [...document.querySelectorAll(".exp-slide")];
+  const expFill = document.querySelector(".exp-rail-fill");
+  const expTicks = [...document.querySelectorAll(".exp-rail-tick")];
+
+  function syncExperience() {
+    if (!expScroller || !expSlides.length) return;
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      expSlides.forEach(s => s.classList.add("is-active"));
+      return;
+    }
+    const rect = expScroller.getBoundingClientRect();
+    const total = expScroller.offsetHeight - window.innerHeight;
+    const progress = Math.max(0, Math.min(1, -rect.top / Math.max(total, 1)));
+    const count = expSlides.length;
+    const idx = Math.min(count - 1, Math.floor(progress * count * 0.999));
+    expSlides.forEach((slide, i) => slide.classList.toggle("is-active", i === idx));
+    if (expFill) expFill.style.height = `${progress * 100}%`;
+    expTicks.forEach((tick, i) => {
+      tick.classList.toggle("is-reached", i <= idx);
+      tick.classList.toggle("is-active", i === idx);
+    });
+  }
+
+  if (expScroller && expSlides.length) {
+    window.addEventListener("scroll", syncExperience, { passive: true });
+    window.addEventListener("resize", syncExperience);
+    syncExperience();
   }
 
   /* ----- Footer year ----- */

@@ -27,7 +27,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=13" />
 </head>
 
 <body>
@@ -58,7 +58,8 @@
   </header>
 
   <main>
-    <section id="home" class="hero">
+    <section id="home" class="hero hero--photo">
+      <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-inner">
         <p class="eyebrow reveal">Cybersecurity Analyst</p>
         <h1 class="hero-title reveal">Sai Kumar Vemula</h1>
@@ -75,15 +76,13 @@
           <span class="status-dot" aria-hidden="true"></span>
           Available for SOC roles · New Jersey, USA
         </p>
-      </div>
-    </section>
 
-    <section class="stats">
-      <div class="container stats-grid">
-        <div class="stat reveal"><div class="stat-num" data-count-to="4" data-suffix="+">0</div><div class="stat-label">Years Experience</div></div>
-        <div class="stat reveal"><div class="stat-num" data-count-to="4">0</div><div class="stat-label">Positions</div></div>
-        <div class="stat reveal"><div class="stat-num" data-count-to="6">0</div><div class="stat-label">Security Projects</div></div>
-        <div class="stat reveal"><div class="stat-num" data-count-to="16" data-suffix="+">0</div><div class="stat-label">Certifications</div></div>
+        <div class="hero-stats reveal">
+          <div class="hstat"><span class="hstat-num" data-count-to="4" data-suffix="+">0</span><span class="hstat-label">Years Experience</span></div>
+          <div class="hstat"><span class="hstat-num" data-count-to="4">0</span><span class="hstat-label">Positions</span></div>
+          <div class="hstat"><span class="hstat-num" data-count-to="6">0</span><span class="hstat-label">Security Projects</span></div>
+          <div class="hstat"><span class="hstat-num" data-count-to="16" data-suffix="+">0</span><span class="hstat-label">Certifications</span></div>
+        </div>
       </div>
     </section>
 
@@ -119,91 +118,96 @@
           </div>
         </div>
 
-        <div class="edu-grid reveal">
-          <article class="edu-card">
-            <p class="eyebrow">Graduate</p>
-            <h3>M.S. Cybersecurity</h3>
-            <p class="muted">Yeshiva University, New York City</p>
-            <p class="mono small">2024 – 2026 · CGPA 3.9</p>
-          </article>
-          <article class="edu-card">
-            <p class="eyebrow">Undergraduate</p>
-            <h3>B.Tech Mechanical Engineering</h3>
-            <p class="muted">CMR College of Engineering &amp; Technology, Hyderabad</p>
-            <p class="mono small">2018 – 2021 · CGPA 3.9</p>
-          </article>
+        <div class="edu-block reveal">
+          <p class="eyebrow edu-label">Education</p>
+          <div class="edu-grid">
+            <article class="edu-card">
+              <p class="eyebrow">Graduate</p>
+              <h3>M.S. Cybersecurity</h3>
+              <p class="muted">Yeshiva University, New York City</p>
+              <p class="mono small">2024 – 2026 · CGPA 3.9</p>
+            </article>
+            <article class="edu-card">
+              <p class="eyebrow">Undergraduate</p>
+              <h3>B.Tech Mechanical Engineering</h3>
+              <p class="muted">CMR College of Engineering &amp; Technology, Hyderabad</p>
+              <p class="mono small">2018 – 2021 · CGPA 3.9</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Experience</p>
-          <h2>Four roles across SOC, security engineering, and IT support.</h2>
+    <section id="experience" class="experience">
+      <div class="exp-scroller" data-slide-count="4">
+        <div class="exp-stage">
+          <div class="container exp-stage-inner">
+            <div class="exp-head">
+              <p class="eyebrow">Experience</p>
+              <h2>Four roles across SOC, security engineering, and IT support.</h2>
+            </div>
+
+            <div class="exp-body">
+            <div class="exp-slides">
+              <article class="exp-slide is-active">
+                <p class="mono small exp-date">Jun 2025 — Present</p>
+                <p class="exp-company">Yeshiva University</p>
+                <h3>Student Assistant — IT Department</h3>
+                <ul>
+                  <li>Assist students, faculty, and staff with technical support across accounts, devices, applications, and campus systems.</li>
+                  <li>Troubleshoot hardware, software, and network connectivity issues while documenting resolutions clearly.</li>
+                  <li>Support IT workflows with a security-aware mindset around account access, data handling, and timely escalation.</li>
+                </ul>
+              </article>
+
+              <article class="exp-slide">
+                <p class="mono small exp-date">Mar 2023 — Apr 2025</p>
+                <p class="exp-company">Deloitte</p>
+                <h3>Cybersecurity Analyst L1</h3>
+                <ul>
+                  <li>Triaged 100+ daily alerts using Splunk SIEM and documented investigation outcomes for downstream analysts.</li>
+                  <li>Investigated phishing, malware, unauthorized access, and suspicious authentication events.</li>
+                  <li>Supported vulnerability assessment and remediation tracking with Nessus and Qualys.</li>
+                </ul>
+              </article>
+
+              <article class="exp-slide">
+                <p class="mono small exp-date">Aug 2022 — Feb 2023</p>
+                <p class="exp-company">Phoenix Business Consulting</p>
+                <h3>Cybersecurity Engineer</h3>
+                <ul>
+                  <li>Reviewed firewall rules and supported network security audit activities.</li>
+                  <li>Coordinated patching and remediation cycles for identified vulnerabilities.</li>
+                  <li>Configured endpoint protection and DLP controls to improve baseline security.</li>
+                </ul>
+              </article>
+
+              <article class="exp-slide">
+                <p class="mono small exp-date">Jun 2021 — Jul 2022</p>
+                <p class="exp-company">Siddhartha Heavy Equipment</p>
+                <h3>IT Support Technician</h3>
+                <ul>
+                  <li>Resolved user support tickets involving hardware, software, and account access issues.</li>
+                  <li>Managed user provisioning, access control, and Active Directory workflows.</li>
+                  <li>Escalated system anomalies and reliability issues before they became larger incidents.</li>
+                </ul>
+              </article>
+            </div>
+
+            <aside class="exp-rail" aria-hidden="true">
+              <span class="exp-rail-cap">Present</span>
+              <div class="exp-rail-line">
+                <span class="exp-rail-fill"></span>
+                <span class="exp-rail-tick" style="top:0%"   data-idx="0"><i></i><b>2025</b></span>
+                <span class="exp-rail-tick" style="top:33.33%" data-idx="1"><i></i><b>2023</b></span>
+                <span class="exp-rail-tick" style="top:66.66%" data-idx="2"><i></i><b>2022</b></span>
+                <span class="exp-rail-tick" style="top:100%"  data-idx="3"><i></i><b>2021</b></span>
+              </div>
+            </aside>
+            </div><!-- /.exp-body -->
+
+          </div>
         </div>
-
-        <ul class="exp-list">
-          <li class="exp-row reveal">
-            <div class="exp-meta">
-              <p class="mono small muted">Jun 2025 — Present</p>
-              <p class="exp-company">Yeshiva University</p>
-            </div>
-            <div class="exp-body">
-              <h3>Student Assistant — IT Department</h3>
-              <ul>
-                <li>Assist students, faculty, and staff with technical support across accounts, devices, applications, and campus systems.</li>
-                <li>Troubleshoot hardware, software, and network connectivity issues while documenting resolutions clearly.</li>
-                <li>Support IT workflows with a security-aware mindset around account access, data handling, and timely escalation.</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="exp-row reveal">
-            <div class="exp-meta">
-              <p class="mono small muted">Mar 2023 — Apr 2025</p>
-              <p class="exp-company">Deloitte</p>
-            </div>
-            <div class="exp-body">
-              <h3>Cybersecurity Analyst L1</h3>
-              <ul>
-                <li>Triaged 100+ daily alerts using Splunk SIEM and documented investigation outcomes for downstream analysts.</li>
-                <li>Investigated phishing, malware, unauthorized access, and suspicious authentication events.</li>
-                <li>Supported vulnerability assessment and remediation tracking with Nessus and Qualys.</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="exp-row reveal">
-            <div class="exp-meta">
-              <p class="mono small muted">Aug 2022 — Feb 2023</p>
-              <p class="exp-company">Phoenix Business Consulting</p>
-            </div>
-            <div class="exp-body">
-              <h3>Cybersecurity Engineer</h3>
-              <ul>
-                <li>Reviewed firewall rules and supported network security audit activities.</li>
-                <li>Coordinated patching and remediation cycles for identified vulnerabilities.</li>
-                <li>Configured endpoint protection and DLP controls to improve baseline security.</li>
-              </ul>
-            </div>
-          </li>
-
-          <li class="exp-row reveal">
-            <div class="exp-meta">
-              <p class="mono small muted">Jun 2021 — Jul 2022</p>
-              <p class="exp-company">Siddhartha Heavy Equipment</p>
-            </div>
-            <div class="exp-body">
-              <h3>IT Support Technician</h3>
-              <ul>
-                <li>Resolved user support tickets involving hardware, software, and account access issues.</li>
-                <li>Managed user provisioning, access control, and Active Directory workflows.</li>
-                <li>Escalated system anomalies and reliability issues before they became larger incidents.</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
       </div>
     </section>
 
@@ -250,14 +254,15 @@
     </section>
 
     <section id="projects" class="projects">
-      <div class="container projects-head reveal">
-        <p class="eyebrow">Projects</p>
-        <h2>Selected security projects.</h2>
-      </div>
-
       <div class="proj-scroller" data-slide-count="5">
         <div class="proj-stage">
           <div class="container proj-stage-inner">
+            <div class="proj-head">
+              <p class="eyebrow">Projects</p>
+              <h2>Selected security projects.</h2>
+            </div>
+
+            <div class="proj-slides">
 
             <article class="proj-slide is-active" data-case-key="siem">
               <div class="proj-text">
@@ -274,6 +279,24 @@
               </div>
               <div class="proj-visual">
                 <img src="assets/img/projects/smart-risk-engine.png" alt="Smart SIEM Risk Engine dashboard" loading="lazy">
+              </div>
+            </article>
+
+            <article class="proj-slide" data-case-key="pentest">
+              <div class="proj-text">
+                <p class="eyebrow">Offensive AI</p>
+                <h3>AI Pen-Test Agent</h3>
+                <p>An AI agent that assists with reconnaissance, vulnerability mapping, exploit suggestion, and report generation across web and infrastructure targets — reasoning over scan output and writing structured findings.</p>
+                <ul class="proj-tags">
+                  <li>Python</li><li>Claude API</li><li>nmap</li><li>nuclei</li><li>MITRE ATT&amp;CK</li>
+                </ul>
+                <div class="proj-cta">
+                  <button class="link-btn" type="button" data-case="pentest">Case study →</button>
+                  <a class="link-btn" href="https://github.com/svemula17/pentest-agent" target="_blank" rel="noreferrer">GitHub →</a>
+                </div>
+              </div>
+              <div class="proj-visual">
+                <img src="assets/img/projects/pentest-agent.png" alt="AI pen-test agent screenshot" loading="lazy">
               </div>
             </article>
 
@@ -330,29 +353,12 @@
               </div>
             </article>
 
-            <article class="proj-slide" data-case-key="pentest">
-              <div class="proj-text">
-                <p class="eyebrow">Offensive AI</p>
-                <h3>AI Pen-Test Agent</h3>
-                <p>An AI agent that assists with reconnaissance, vulnerability mapping, exploit suggestion, and report generation across web and infrastructure targets — reasoning over scan output and writing structured findings.</p>
-                <ul class="proj-tags">
-                  <li>Python</li><li>Claude API</li><li>nmap</li><li>nuclei</li><li>MITRE ATT&amp;CK</li>
-                </ul>
-                <div class="proj-cta">
-                  <button class="link-btn" type="button" data-case="pentest">Case study →</button>
-                  <a class="link-btn" href="https://github.com/svemula17/pentest-agent" target="_blank" rel="noreferrer">GitHub →</a>
-                </div>
-              </div>
-              <div class="proj-visual">
-                <img src="assets/img/projects/pentest-agent.png" alt="AI pen-test agent screenshot" loading="lazy">
-              </div>
-            </article>
+            </div><!-- /.proj-slides -->
 
-          </div>
-
-          <div class="proj-progress" aria-hidden="true">
-            <span class="proj-num mono">01 / 05</span>
-            <div class="proj-bar"><span></span></div>
+            <div class="proj-progress" aria-hidden="true">
+              <span class="proj-num mono">01 / 05</span>
+              <div class="proj-bar"><span></span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -484,6 +490,6 @@
     </article>
   </div>
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>
