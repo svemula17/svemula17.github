@@ -28,6 +28,7 @@
     const open = nav.classList.toggle("menu-open");
     navToggle.classList.toggle("is-open", open);
     navToggle.setAttribute("aria-expanded", String(open));
+    updateNavReveal();
   });
   document.querySelectorAll(".nav-links a").forEach(a => {
     a.addEventListener("click", () => {
@@ -36,6 +37,16 @@
       navToggle?.setAttribute("aria-expanded", "false");
     });
   });
+
+  /* ----- Nav reveal: hidden over the home hero, shown once scrolling ----- */
+  function updateNavReveal() {
+    if (!nav) return;
+    const show = window.scrollY > 64 || nav.classList.contains("menu-open");
+    nav.classList.toggle("nav--show", show);
+  }
+  window.addEventListener("scroll", updateNavReveal, { passive: true });
+  window.addEventListener("resize", updateNavReveal);
+  updateNavReveal();
 
   /* ----- Scroll-spy on nav ----- */
   const navLinks = [...document.querySelectorAll(".nav-links a")];

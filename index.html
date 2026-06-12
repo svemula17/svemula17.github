@@ -27,7 +27,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=13" />
+  <link rel="stylesheet" href="style.css?v=15" />
 </head>
 
 <body>
@@ -76,13 +76,13 @@
           <span class="status-dot" aria-hidden="true"></span>
           Available for SOC roles · New Jersey, USA
         </p>
+      </div>
 
-        <div class="hero-stats reveal">
-          <div class="hstat"><span class="hstat-num" data-count-to="4" data-suffix="+">0</span><span class="hstat-label">Years Experience</span></div>
-          <div class="hstat"><span class="hstat-num" data-count-to="4">0</span><span class="hstat-label">Positions</span></div>
-          <div class="hstat"><span class="hstat-num" data-count-to="6">0</span><span class="hstat-label">Security Projects</span></div>
-          <div class="hstat"><span class="hstat-num" data-count-to="16" data-suffix="+">0</span><span class="hstat-label">Certifications</span></div>
-        </div>
+      <div class="hero-stats reveal">
+        <div class="hstat"><span class="hstat-num" data-count-to="4" data-suffix="+">0</span><span class="hstat-label">Years Experience</span></div>
+        <div class="hstat"><span class="hstat-num" data-count-to="4">0</span><span class="hstat-label">Positions</span></div>
+        <div class="hstat"><span class="hstat-num" data-count-to="6">0</span><span class="hstat-label">Security Projects</span></div>
+        <div class="hstat"><span class="hstat-num" data-count-to="16" data-suffix="+">0</span><span class="hstat-label">Certifications</span></div>
       </div>
     </section>
 
@@ -94,9 +94,6 @@
         </div>
 
         <div class="about-grid">
-          <div class="about-photo reveal">
-            <img src="assets/img/profile.jpg" alt="Sai Kumar Vemula" loading="lazy" decoding="async" width="480" height="600" />
-          </div>
           <div class="about-body reveal">
             <p>
               I am a cybersecurity professional currently pursuing an M.S. in Cybersecurity at
@@ -105,8 +102,7 @@
             </p>
             <p>
               I like security work that produces evidence: clean detections, clear investigation
-              notes, prioritized remediation, and tooling that helps analysts move faster without
-              losing context.
+              notes, prioritized remediation, and tooling that helps analysts move faster.
             </p>
 
             <dl class="about-meta">
@@ -116,24 +112,24 @@
               <div><dt>Open to</dt><dd>SOC · Cloud Security · Threat Detection</dd></div>
             </dl>
           </div>
-        </div>
 
-        <div class="edu-block reveal">
-          <p class="eyebrow edu-label">Education</p>
-          <div class="edu-grid">
-            <article class="edu-card">
-              <p class="eyebrow">Graduate</p>
-              <h3>M.S. Cybersecurity</h3>
-              <p class="muted">Yeshiva University, New York City</p>
-              <p class="mono small">2024 – 2026 · CGPA 3.9</p>
-            </article>
-            <article class="edu-card">
-              <p class="eyebrow">Undergraduate</p>
-              <h3>B.Tech Mechanical Engineering</h3>
-              <p class="muted">CMR College of Engineering &amp; Technology, Hyderabad</p>
-              <p class="mono small">2018 – 2021 · CGPA 3.9</p>
-            </article>
-          </div>
+          <aside class="edu-block reveal">
+            <p class="eyebrow edu-label">Education</p>
+            <div class="edu-grid">
+              <article class="edu-card">
+                <p class="eyebrow">Graduate</p>
+                <h3>M.S. Cybersecurity</h3>
+                <p class="muted">Yeshiva University, New York City</p>
+                <p class="mono small">2024 – 2026 · CGPA 3.9</p>
+              </article>
+              <article class="edu-card">
+                <p class="eyebrow">Undergraduate</p>
+                <h3>B.Tech Mechanical Engineering</h3>
+                <p class="muted">CMR College of Engineering &amp; Technology, Hyderabad</p>
+                <p class="mono small">2018 – 2021 · CGPA 3.9</p>
+              </article>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -373,20 +369,32 @@
 
         <div class="cert-grid">
           <a class="cert-card reveal" href="assets/img/certs/comptia.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">CompTIA</p>
-            <h3>Security+</h3>
+            <img src="assets/img/certs/comptia.jpg" alt="CompTIA Security+ certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">CompTIA</p>
+              <h3>Security+</h3>
+            </div>
           </a>
           <a class="cert-card reveal" href="assets/img/certs/google-cybersecurity.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Cybersecurity Professional</h3>
+            <img src="assets/img/certs/google-cybersecurity.jpg" alt="Google Cybersecurity Professional certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Cybersecurity Professional</h3>
+            </div>
           </a>
           <a class="cert-card reveal" href="assets/img/certs/soc.png" target="_blank" rel="noreferrer">
-            <p class="eyebrow">SOC Experts</p>
-            <h3>Hands-on SOC Lab Program</h3>
+            <img src="assets/img/certs/soc.png" alt="SOC Experts Hands-on SOC Lab Program certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">SOC Experts</p>
+              <h3>Hands-on SOC Lab Program</h3>
+            </div>
           </a>
           <a class="cert-card reveal" href="assets/img/certs/redhat.png" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Red Hat</p>
-            <h3>System Administration I (RH124)</h3>
+            <img src="assets/img/certs/redhat.png" alt="Red Hat System Administration I RH124 certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Red Hat</p>
+              <h3>System Administration I (RH124)</h3>
+            </div>
           </a>
         </div>
 
@@ -394,52 +402,88 @@
 
         <div id="certMore" class="cert-grid cert-grid-more" hidden>
           <a class="cert-card" href="assets/img/certs/isc2.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">(ISC)² · Coursera</p>
-            <h3>Certified in Cybersecurity</h3>
+            <img src="assets/img/certs/isc2.jpg" alt="(ISC)² Certified in Cybersecurity certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">(ISC)² · Coursera</p>
+              <h3>Certified in Cybersecurity</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/automate.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Automate Cybersecurity Tasks with Python</h3>
+            <img src="assets/img/certs/automate.jpg" alt="Google Automate Cybersecurity Tasks with Python certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Automate Cybersecurity Tasks with Python</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/foundations.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Foundations of Cybersecurity</h3>
+            <img src="assets/img/certs/foundations.jpg" alt="Google Foundations of Cybersecurity certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Foundations of Cybersecurity</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/play-it-safe.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Play It Safe: Manage Security Risks</h3>
+            <img src="assets/img/certs/play-it-safe.jpg" alt="Google Play It Safe Manage Security Risks certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Play It Safe: Manage Security Risks</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/connect.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Connect and Protect Networks</h3>
+            <img src="assets/img/certs/connect.jpg" alt="Google Connect and Protect Networks certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Connect and Protect Networks</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/tools.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Tools of the Trade: Linux &amp; SQL</h3>
+            <img src="assets/img/certs/tools.jpg" alt="Google Tools of the Trade Linux and SQL certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Tools of the Trade: Linux &amp; SQL</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/assets.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Assets, Threats &amp; Vulnerabilities</h3>
+            <img src="assets/img/certs/assets.jpg" alt="Google Assets, Threats and Vulnerabilities certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Assets, Threats &amp; Vulnerabilities</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/sound.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Sound the Alarm: Detection &amp; Response</h3>
+            <img src="assets/img/certs/sound.jpg" alt="Google Sound the Alarm Detection and Response certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Sound the Alarm: Detection &amp; Response</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/incident.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Incident Response, BC &amp; DR Concepts</h3>
+            <img src="assets/img/certs/incident.jpg" alt="Google Incident Response certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Incident Response, BC &amp; DR Concepts</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/access.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Access Control Concepts</h3>
+            <img src="assets/img/certs/access.jpg" alt="Google Access Control Concepts certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Access Control Concepts</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/security.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Security Operations</h3>
+            <img src="assets/img/certs/security.jpg" alt="Google Security Operations certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Security Operations</h3>
+            </div>
           </a>
           <a class="cert-card" href="assets/img/certs/put.jpg" target="_blank" rel="noreferrer">
-            <p class="eyebrow">Google</p>
-            <h3>Put It to Work: Prepare for Jobs</h3>
+            <img src="assets/img/certs/put.jpg" alt="Google Put It to Work Prepare for Jobs certificate" loading="lazy">
+            <div class="cert-meta">
+              <p class="eyebrow">Google</p>
+              <h3>Put It to Work: Prepare for Jobs</h3>
+            </div>
           </a>
         </div>
       </div>
@@ -490,6 +534,6 @@
     </article>
   </div>
 
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>
