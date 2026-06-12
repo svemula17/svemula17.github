@@ -536,7 +536,7 @@ p { margin: 0; }
 /* =========================================================
    Experience — sticky-scroll with year rail
    ========================================================= */
-.experience { padding: 0; }
+.experience { padding: 0; background: #080a0e; }
 
 .exp-scroller {
   position: relative;
@@ -550,8 +550,20 @@ p { margin: 0; }
   align-items: stretch;
   overflow: hidden;
 }
+/* dusk-skyline backdrop, fixed behind the sliding roles */
+.exp-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(to right, rgba(8,10,14,.93) 0%, rgba(8,10,14,.74) 44%, rgba(8,10,14,.5) 100%),
+    linear-gradient(to bottom, rgba(8,10,14,.55) 0%, transparent 24%, transparent 78%, rgba(8,10,14,.5) 100%),
+    url("assets/img/experience.jpg") center / cover no-repeat;
+}
 .exp-stage-inner {
   position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -567,6 +579,15 @@ p { margin: 0; }
   letter-spacing: -.02em;
   font-weight: 600;
 }
+
+/* light text over the photo backdrop */
+.experience .exp-head h2 { color: #fff; text-shadow: 0 1px 16px rgba(0,0,0,.55); }
+.experience .exp-head .eyebrow { color: rgba(255,255,255,.72); text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.experience .exp-date { color: rgba(255,255,255,.66); }
+.experience .exp-company { color: #fff; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+.experience .exp-slide h3 { color: #fff; text-shadow: 0 1px 16px rgba(0,0,0,.55); }
+.experience .exp-slide li { color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.45); }
+.experience .exp-slide li::before { background: rgba(255,255,255,.55); }
 .exp-body {
   flex: 1;
   min-height: 0;
@@ -712,6 +733,16 @@ p { margin: 0; }
 .exp-rail-tick.is-reached i { border-color: var(--ink); }
 .exp-rail-tick.is-active i { background: var(--ink); border-color: var(--ink); transform: scale(1.1); }
 .exp-rail-tick.is-active b { color: var(--ink); }
+
+/* light year-rail over the photo backdrop */
+.experience .exp-rail-cap { color: rgba(255,255,255,.6); }
+.experience .exp-rail-line { background: rgba(255,255,255,.22); }
+.experience .exp-rail-fill { background: #fff; }
+.experience .exp-rail-tick i { background: rgba(8,10,14,.55); border-color: rgba(255,255,255,.42); }
+.experience .exp-rail-tick b { color: rgba(255,255,255,.55); text-shadow: 0 1px 6px rgba(0,0,0,.55); }
+.experience .exp-rail-tick.is-reached i { border-color: #fff; }
+.experience .exp-rail-tick.is-active i { background: #fff; border-color: #fff; }
+.experience .exp-rail-tick.is-active b { color: #fff; }
 
 /* =========================================================
    Skills
@@ -1223,10 +1254,10 @@ body.case-modal-open { overflow: hidden; }
   .experience { padding: clamp(64px, 10vh, 96px) 0; }
   .exp-scroller { height: auto; }
   .exp-stage {
-    position: static;
+    position: relative;
     height: auto;
     display: block;
-    overflow: visible;
+    overflow: hidden;
   }
   .exp-stage-inner {
     position: static;
