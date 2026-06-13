@@ -534,26 +534,46 @@ p { margin: 0; }
 .edu-card .muted { margin-bottom: 4px; font-size: var(--fs-sm); }
 .edu-card .small { font-size: var(--fs-xs); }
 
-/* ambient drifting backdrop, shared by About + Projects */
-@keyframes ambientDrift {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  50%  { transform: translate3d(2.5%, -2%, 0) scale(1.08); }
-  100% { transform: translate3d(0, 0, 0) scale(1); }
+/* animated aurora backdrop, shared by About + Projects */
+@keyframes auroraA {
+  0%   { transform: translate3d(-6%, -4%, 0) scale(1); }
+  50%  { transform: translate3d(7%, 5%, 0) scale(1.22); }
+  100% { transform: translate3d(-6%, -4%, 0) scale(1); }
+}
+@keyframes auroraB {
+  0%   { transform: translate3d(6%, 7%, 0) scale(1.14); }
+  50%  { transform: translate3d(-7%, -6%, 0) scale(1.32); }
+  100% { transform: translate3d(6%, 7%, 0) scale(1.14); }
 }
 #about {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
-#about::before {
+#about::before,
+#about::after,
+.proj-stage::before,
+.proj-stage::after {
   content: "";
   position: absolute;
-  inset: -15%;
+  inset: -25%;
   z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+}
+#about::before,
+.proj-stage::before {
   background:
-    radial-gradient(38% 38% at 22% 26%, rgba(37,99,235,.10), transparent 70%),
-    radial-gradient(42% 42% at 80% 74%, rgba(20,184,166,.08), transparent 72%);
-  animation: ambientDrift 22s ease-in-out infinite;
+    radial-gradient(30% 32% at 22% 28%, rgba(37,99,235,.22), transparent 62%),
+    radial-gradient(26% 28% at 74% 30%, rgba(20,184,166,.18), transparent 62%);
+  animation: auroraA 19s ease-in-out infinite;
+}
+#about::after,
+.proj-stage::after {
+  background:
+    radial-gradient(30% 30% at 72% 74%, rgba(139,92,246,.18), transparent 62%),
+    radial-gradient(28% 28% at 30% 72%, rgba(56,189,248,.16), transparent 62%);
+  animation: auroraB 25s ease-in-out infinite;
 }
 
 /* =========================================================
@@ -829,17 +849,7 @@ p { margin: 0; }
   overflow: hidden;
   isolation: isolate;
 }
-/* subtle drifting ambient backdrop */
-.proj-stage::before {
-  content: "";
-  position: absolute;
-  inset: -15%;
-  z-index: -1;
-  background:
-    radial-gradient(38% 40% at 24% 24%, rgba(37,99,235,.09), transparent 70%),
-    radial-gradient(44% 44% at 78% 76%, rgba(20,184,166,.07), transparent 72%);
-  animation: ambientDrift 26s ease-in-out infinite;
-}
+/* aurora backdrop (::before / ::after) defined in the shared About + Projects block */
 .proj-stage-inner {
   position: relative;
   z-index: 1;
@@ -1238,7 +1248,8 @@ body.case-modal-open { overflow: hidden; }
   .exp-slide .exp-company,
   .exp-slide h3,
   .exp-slide ul li { opacity: 1; transform: none; transition: none; }
-  #about::before, .proj-stage::before { animation: none; }
+  #about::before, #about::after,
+  .proj-stage::before, .proj-stage::after { animation: none; }
 }
 
 /* =========================================================
