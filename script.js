@@ -169,42 +169,42 @@
   const caseStudies = {
     siem: {
       title: "Smart SIEM Risk Engine",
-      problem: "SOC teams drown in high-volume IDS and network alerts that aren't normalized, scored, or prioritized — leading to alert fatigue and missed real threats.",
-      built: "A full Python/FastAPI SOC platform: ingestion, normalization, hybrid risk scoring (heuristic + Isolation-Forest anomaly detection), MITRE ATT&CK mapping, playbook automation, UEBA profiles, IOC intelligence, and a 15-tab WebSocket dashboard with AI Investigator chat (Claude), pivot search, ATT&CK heatmap, GeoIP map, SLA tracking, bulk ops, and downloadable incident reports.",
-      tools: "Python, FastAPI, WebSockets, SQLite, SQLAlchemy, Pydantic, scikit-learn (Isolation Forest), Claude API, Leaflet, Chart.js, Jinja2, MITRE ATT&CK.",
-      outcome: "An analyst workflow with risk bands, anomaly detection, live threat feeds, hunting queries, kill-chain views, automated playbooks, geo-located source-IP map, AI-assisted investigation, and downloadable executive incident reports.",
+      problem: "SOC teams get buried under raw alerts that are hard to normalize, score, and prioritize, which makes alert fatigue and missed threats more likely.",
+      built: "A Python/FastAPI SIEM and SOAR stack that ingests raw logs, normalizes them, scores risk with heuristics plus anomaly detection, maps events to MITRE ATT&CK, and pushes everything into a live dashboard. The repo also includes UEBA, IOC handling, playbooks, GeoIP context, and AI-assisted incident summaries.",
+      tools: "Python, FastAPI, WebSockets, SQLite, SQLAlchemy, Pydantic, scikit-learn, Claude API, Leaflet, Chart.js, MITRE ATT&CK.",
+      outcome: "A practical analyst workflow with risk bands, live threat feeds, anomaly flags, MITRE heatmaps, geo context, and downloadable incident reports that are easy to hand off.",
       link: "https://github.com/svemula17/smart-siem-risk-engine"
     },
     cloud: {
-      title: "AI Cloud Posture Platform",
+      title: "Cloud Security & Deception Platform",
       problem: "Cloud misconfigurations and exposed services are easier to understand when defenders can observe how attackers discover and interact with risky assets.",
-      built: "A controlled cloud security and deception lab that deploys intentionally monitored cloud assets to convert attacker curiosity into defensive intelligence.",
-      tools: "AWS, cloud security posture concepts, deception services, alerting, defensive research workflow.",
-      outcome: "A practical cloud security lab showing attacker behavior patterns and how deception can support detection strategy.",
+      built: "A controlled cloud security lab that deploys monitored cloud assets and deception services to study discovery, probing, and movement patterns. It focuses on turning attacker behavior into useful defensive signals instead of just a dashboard of findings.",
+      tools: "AWS, cloud posture concepts, deception services, alerting, telemetry, defensive research workflow.",
+      outcome: "A practical cloud security experiment that shows how deception and posture review can shape better detection strategy.",
       link: "https://github.com/saivarmadpr/Cloud_Security_Posture_-_Deception_Platform"
     },
-    dvwa: {
-      title: "DVWA Vulnerability Testing Lab",
-      problem: "Defenders need hands-on familiarity with common web attack paths to validate controls and write better remediation guidance.",
-      built: "A DVWA lab workflow for testing SQL injection, XSS, CSRF, and related OWASP Top 10 issues with documented attack steps and remediation notes.",
-      tools: "DVWA, Burp Suite, browser tooling, OWASP Top 10 testing methodology.",
-      outcome: "Improved offensive-security understanding that translates directly into clearer defensive recommendations.",
-      link: "https://github.com/svemula17"
+    cooking: {
+      title: "Smart Cooking App",
+      problem: "Home cooks need one place to discover recipes, plan meals, track nutrition, and keep grocery prep from becoming a second job.",
+      built: "A cooking assistant with recipe discovery, guided cooking mode, nutrition tracking, ingredient substitution help, and shopping-list workflows. The repo is split into mobile and backend services so the UI, AI assistant, and grocery flow can evolve independently.",
+      tools: "React Native, TypeScript, Node.js, FastAPI, LangChain, PostgreSQL, Redis, Docker Compose.",
+      outcome: "A more complete meal-planning experience that blends AI help with practical day-to-day cooking and grocery organization.",
+      link: "https://github.com/svemula17/smart-cooking-app"
     },
-    image: {
-      title: "AWS Image AI Tagging",
-      problem: "Uploaded image assets become difficult to organize and search without useful metadata extraction.",
-      built: "A cloud-native image workflow using upload, tagging, and searchable metadata patterns for asset organization.",
-      tools: "AWS S3, Lambda, metadata tagging, serverless workflow concepts.",
-      outcome: "A clearer pattern for searchable cloud-hosted media assets and automated metadata enrichment.",
-      link: ""
+    rebuild: {
+      title: "Vibrant Inc Rebuild",
+      problem: "Business sites often lose trust when the information architecture is cluttered and the contact path is buried under too much noise.",
+      built: "A local Next.js rebuild with cleaner navigation, stronger brand credibility, metadata improvements, redirects, sitemap support, and CMS-ready content scaffolding. The contact flow is intentionally simpler so the page can convert better without feeling pushy.",
+      tools: "Next.js, App Router, SEO metadata, redirects, robots.txt, sitemap.ts, typed content collections.",
+      outcome: "A sharper marketing site that feels easier to scan, easier to maintain, and easier to hand off to a real content system.",
+      link: "https://github.com/svemula17/vibrantrebuild.io"
     },
     pentest: {
       title: "AI Pen-Test Agent",
-      problem: "Manual penetration testing is slow and inconsistent — analysts need an AI-assisted workflow that suggests next steps, summarizes evidence, and keeps a clean audit trail.",
-      built: "An AI agent that assists with reconnaissance, vulnerability mapping, exploit suggestion, and report generation across web and infrastructure targets. The agent reasons over scan output, proposes test cases, and writes findings into a structured report.",
-      tools: "Python, Claude API, recon/scan toolchain (nmap, nuclei), web fuzzing, MITRE ATT&CK mapping.",
-      outcome: "Faster pen-test triage and consistent reporting. Hands off cleanly to SOC and red-team workflows.",
+      problem: "Manual pentesting is slow and inconsistent, so the interesting part is figuring out how an agent can plan the next move without losing safety or clarity.",
+      built: "An AI agent that runs recon, reads the results, chooses the next tool, and writes a professional report at the end. A strict allowlist keeps the workflow locked to a safe lab target while it demonstrates how nmap, gobuster, sqlmap, and reporting can fit together.",
+      tools: "Python, Claude API, nmap, gobuster, sqlmap, nuclei, MD reporting, safety allowlists.",
+      outcome: "A repeatable pentest workflow that produces cleaner findings, faster triage, and a report format that is easy to review.",
       link: "https://github.com/svemula17/pentest-agent"
     }
   };

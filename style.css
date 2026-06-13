@@ -127,7 +127,7 @@ p { margin: 0; }
   align-items: center;
   justify-content: center;
   gap: var(--sp-2);
-  margin-top: var(--sp-8);
+  margin-top: var(--sp-6);
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   color: var(--muted);
@@ -344,6 +344,28 @@ p { margin: 0; }
   justify-content: center;
   gap: var(--sp-3);
 }
+
+.hero-contact {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.82);
+}
+.hero-contact a {
+  color: rgba(255,255,255,.96);
+  border-bottom: 1px solid rgba(255,255,255,.32);
+  padding-bottom: 2px;
+  transition: border-color var(--t) var(--ease), color var(--t) var(--ease);
+}
+.hero-contact a:hover { border-color: #fff; color: #fff; }
+.hero-contact span { color: rgba(255,255,255,.45); }
 
 /* ----- Hero with photo background + dark vignette ----- */
 .hero--photo {
@@ -953,9 +975,18 @@ p { margin: 0; }
 }
 .proj-visual:hover img { filter: grayscale(0%); }
 
+.proj-visual--art img {
+  filter: none;
+}
+.proj-visual--art:hover img {
+  filter: none;
+}
+
 /* dark-mode photo treatment — keeps screenshots feeling at home on dark surfaces */
 [data-ui="dark"] .proj-visual img { filter: grayscale(100%) brightness(.9); }
 [data-ui="dark"] .proj-visual:hover img { filter: grayscale(0%) brightness(.95); }
+[data-ui="dark"] .proj-visual--art img { filter: none; }
+[data-ui="dark"] .proj-visual--art:hover img { filter: none; }
 
 /* progress strip */
 .proj-progress {
@@ -1055,8 +1086,10 @@ p { margin: 0; }
   overflow: hidden;
   isolation: isolate;
   background: #06070a;
-  padding-top: clamp(96px, 16vh, 176px);
-  padding-bottom: clamp(96px, 16vh, 176px);
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: clamp(72px, 10vh, 120px) 0;
 }
 /* cave / lantern photo, darkened so the section reads near-black */
 .contact::before {
@@ -1066,7 +1099,7 @@ p { margin: 0; }
   z-index: -2;
   background:
     radial-gradient(120% 95% at 50% 40%, rgba(6,7,10,0) 0%, rgba(6,7,10,.5) 52%, rgba(6,7,10,.93) 100%),
-    url("assets/img/contact-bg.jpg") center 56% / cover no-repeat;
+    url("assets/img/contact-bg.jpg") center center / cover no-repeat;
 }
 /* top + bottom melt so it sits as a contained dark band */
 .contact::after {
@@ -1081,6 +1114,7 @@ p { margin: 0; }
   position: relative;
   z-index: 1;
   max-width: 720px;
+  width: 100%;
   text-align: center;
 }
 .contact .eyebrow { color: rgba(255,255,255,.6); }
@@ -1381,4 +1415,3 @@ body.case-modal-open { overflow: hidden; }
   .contact-actions .btn-pill, .contact-actions .btn-ghost { justify-content: center; }
   .cert-grid { grid-template-columns: 1fr; }
 }
-
