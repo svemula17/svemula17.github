@@ -556,6 +556,36 @@ p { margin: 0; }
 .edu-card .muted { margin-bottom: 4px; font-size: var(--fs-sm); }
 .edu-card .small { font-size: var(--fs-xs); }
 
+/* highlights / achievements strip */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  margin-top: clamp(28px, 4vh, 44px);
+  padding-top: clamp(24px, 3.5vh, 36px);
+  border-top: 1px solid var(--border);
+}
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--bg);
+  transition: border-color var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.highlight:hover { border-color: var(--border-2); transform: translateY(-2px); }
+.highlight-k {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--focus);
+  font-weight: 500;
+}
+.highlight-v { font-size: var(--fs-sm); color: var(--ink); font-weight: 600; line-height: 1.4; }
+@media (max-width: 760px) { .highlights { grid-template-columns: 1fr; } }
+
 /* animated aurora backdrop, shared by About + Projects */
 @keyframes auroraA {
   0%   { transform: translate3d(-6%, -4%, 0) scale(1); }
@@ -860,7 +890,7 @@ p { margin: 0; }
 
 .proj-scroller {
   position: relative;
-  height: 500vh; /* 5 slides × 100vh */
+  height: 600vh; /* 6 slides × 100vh */
 }
 .proj-stage {
   position: sticky;
@@ -1086,6 +1116,7 @@ p { margin: 0; }
   overflow: hidden;
   isolation: isolate;
   background: #06070a;
+  min-height: 100vh;
   min-height: 100svh;
   display: flex;
   align-items: center;

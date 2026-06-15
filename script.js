@@ -199,13 +199,21 @@
       outcome: "A sharper marketing site that feels easier to scan, easier to maintain, and easier to hand off to a real content system.",
       link: "https://github.com/svemula17/vibrantrebuild.io"
     },
-    pentest: {
-      title: "AI Pen-Test Agent",
-      problem: "Manual pentesting is slow and inconsistent, so the interesting part is figuring out how an agent can plan the next move without losing safety or clarity.",
-      built: "An AI agent that runs recon, reads the results, chooses the next tool, and writes a professional report at the end. A strict allowlist keeps the workflow locked to a safe lab target while it demonstrates how nmap, gobuster, sqlmap, and reporting can fit together.",
-      tools: "Python, Claude API, nmap, gobuster, sqlmap, nuclei, MD reporting, safety allowlists.",
-      outcome: "A repeatable pentest workflow that produces cleaner findings, faster triage, and a report format that is easy to review.",
-      link: "https://github.com/svemula17/pentest-agent"
+    awscloud: {
+      title: "AWS SecureCloud",
+      problem: "Cloud environments fail open when networking, identity, and monitoring are bolted on after the fact instead of designed in from the start.",
+      built: "A hardened AWS reference build: multi-tier VPC with public/private subnets and security groups, least-privilege IAM with MFA, KMS-encrypted S3/RDS, and centralized logging via CloudTrail, CloudWatch, and Config. Threat detection runs on GuardDuty, Security Hub, and Inspector, with Lambda-driven auto-remediation — all defined as code in CloudFormation.",
+      tools: "AWS VPC, IAM, KMS, S3, RDS, GuardDuty, Security Hub, Inspector, CloudTrail, Config, Lambda, CloudFormation.",
+      outcome: "A repeatable, least-privilege cloud baseline with real-time threat detection and automated response that can be stood up from a single template.",
+      link: "https://github.com/saivarmadpr/AWS-Cloud-Security-Project"
+    },
+    guardrail: {
+      title: "AI Guardrail Testing Lab",
+      problem: "Teams ship LLM features without knowing how much their guardrails actually stop, so prompt injection and data leakage slip through unnoticed.",
+      built: "A realistic agentic customer-support app (LangChain, 10 tools, multi-step reasoning) wired to run the same 60 adversarial scenarios in three modes: bare (no guardrails), proxy-only (LiteLLM gateway), and full (gateway + shield middleware). Each run produces a comparison report of pass-rates across attack categories.",
+      tools: "Python, LangChain, LiteLLM proxy, guardrail middleware, adversarial test harness, prompt-injection & jailbreak scenarios.",
+      outcome: "Clear, side-by-side evidence of how much each guardrail layer catches — turning 'we have guardrails' into a measurable coverage number.",
+      link: "https://github.com/saivarmadpr/guardrail-testing-platform"
     }
   };
 
