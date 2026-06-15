@@ -635,7 +635,7 @@ p { margin: 0; }
 
 .exp-scroller {
   position: relative;
-  height: 400vh; /* 4 roles × 100vh */
+  height: 300vh; /* 3 roles × 100vh */
 }
 .exp-stage {
   position: sticky;
@@ -890,7 +890,7 @@ p { margin: 0; }
 
 .proj-scroller {
   position: relative;
-  height: 600vh; /* 6 slides × 100vh */
+  height: 400vh; /* 4 slides × 100vh */
 }
 .proj-stage {
   position: sticky;

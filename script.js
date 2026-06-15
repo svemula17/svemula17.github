@@ -169,51 +169,35 @@
   const caseStudies = {
     siem: {
       title: "Smart SIEM Risk Engine",
-      problem: "SOC teams get buried under raw alerts that are hard to normalize, score, and prioritize, which makes alert fatigue and missed threats more likely.",
-      built: "A Python/FastAPI SIEM and SOAR stack that ingests raw logs, normalizes them, scores risk with heuristics plus anomaly detection, maps events to MITRE ATT&CK, and pushes everything into a live dashboard. The repo also includes UEBA, IOC handling, playbooks, GeoIP context, and AI-assisted incident summaries.",
-      tools: "Python, FastAPI, WebSockets, SQLite, SQLAlchemy, Pydantic, scikit-learn, Claude API, Leaflet, Chart.js, MITRE ATT&CK.",
-      outcome: "A practical analyst workflow with risk bands, live threat feeds, anomaly flags, MITRE heatmaps, geo context, and downloadable incident reports that are easy to hand off.",
+      problem: "SOC teams are overwhelmed by high-volume IDS/IPS alerts that aren't normalized, scored, or prioritized — leading to alert fatigue and missed threats.",
+      built: "An automated SIEM solution for security monitoring, log analysis, and threat detection. Features a machine learning-based risk scoring engine (Random Forest) for threat classification and alert prioritization, with incident response automation, detection engineering, real-time dashboards, GeoIP visualization, and alert notifications.",
+      tools: "Python, FastAPI, WebSockets, SQLite, SQLAlchemy, Pydantic, scikit-learn, MITRE ATT&CK.",
+      outcome: "Reduced SOC alert fatigue with intelligent risk scoring, automated triage, and a real-time analyst dashboard with downloadable incident reports.",
       link: "https://github.com/svemula17/smart-siem-risk-engine"
+    },
+    pentest: {
+      title: "AI Pen-Test Agent",
+      problem: "Manual penetration testing is slow, inconsistent, and requires an expert who knows dozens of specialized tools and when to use each one.",
+      built: "An autonomous penetration testing agent that orchestrates 17 tools (nmap, gobuster, sqlmap, Metasploit parsers, and more). It reads tool output, decides the next move, and writes a professional Markdown report with severity ratings and fix advice. Supports Claude, Gemini, or a built-in deterministic planner. Hard safety rails enforce lab-only targeting (DVWA).",
+      tools: "Python, Claude API, Gemini API, nmap, gobuster, sqlmap, nuclei, XSStrike, Hydra, Metasploit parsers, Streamlit UI.",
+      outcome: "A repeatable, safe pentest workflow that produces consistent findings, faster triage, and professional reports — demonstrating LLM-driven multi-step tool orchestration with enforceable safety constraints.",
+      link: "https://github.com/svemula17/pentest-agent"
     },
     cloud: {
       title: "Cloud Security & Deception Platform",
-      problem: "Cloud misconfigurations and exposed services are easier to understand when defenders can observe how attackers discover and interact with risky assets.",
-      built: "A controlled cloud security lab that deploys monitored cloud assets and deception services to study discovery, probing, and movement patterns. It focuses on turning attacker behavior into useful defensive signals instead of just a dashboard of findings.",
-      tools: "AWS, cloud posture concepts, deception services, alerting, telemetry, defensive research workflow.",
-      outcome: "A practical cloud security experiment that shows how deception and posture review can shape better detection strategy.",
+      problem: "Cloud misconfigurations go undetected and attacker behavior in cloud environments is poorly understood without active observation.",
+      built: "An AI-driven cloud security platform for CSPM, detecting misconfigurations across AWS services (IAM, S3, EC2). Performs cloud risk assessment and threat modeling mapped to MITRE ATT&CK and CIS Benchmarks. Implements deception technology (honeypots) and real-time alerting to study attacker discovery and movement patterns.",
+      tools: "Python, AWS, Azure, TensorFlow, Scikit-learn, Terraform, MITRE ATT&CK, CIS Benchmarks.",
+      outcome: "Improved threat detection, incident response, and MTTD/MTTR through AI-driven posture management and deception-based attacker intelligence.",
       link: "https://github.com/saivarmadpr/Cloud_Security_Posture_-_Deception_Platform"
     },
-    cooking: {
-      title: "Smart Cooking App",
-      problem: "Home cooks need one place to discover recipes, plan meals, track nutrition, and keep grocery prep from becoming a second job.",
-      built: "A cooking assistant with recipe discovery, guided cooking mode, nutrition tracking, ingredient substitution help, and shopping-list workflows. The repo is split into mobile and backend services so the UI, AI assistant, and grocery flow can evolve independently.",
-      tools: "React Native, TypeScript, Node.js, FastAPI, LangChain, PostgreSQL, Redis, Docker Compose.",
-      outcome: "A more complete meal-planning experience that blends AI help with practical day-to-day cooking and grocery organization.",
-      link: "https://github.com/svemula17/smart-cooking-app"
-    },
-    rebuild: {
-      title: "Vibrant Inc Rebuild",
-      problem: "Business sites often lose trust when the information architecture is cluttered and the contact path is buried under too much noise.",
-      built: "A local Next.js rebuild with cleaner navigation, stronger brand credibility, metadata improvements, redirects, sitemap support, and CMS-ready content scaffolding. The contact flow is intentionally simpler so the page can convert better without feeling pushy.",
-      tools: "Next.js, App Router, SEO metadata, redirects, robots.txt, sitemap.ts, typed content collections.",
-      outcome: "A sharper marketing site that feels easier to scan, easier to maintain, and easier to hand off to a real content system.",
-      link: "https://github.com/svemula17/vibrantrebuild.io"
-    },
-    awscloud: {
-      title: "AWS SecureCloud",
-      problem: "Cloud environments fail open when networking, identity, and monitoring are bolted on after the fact instead of designed in from the start.",
-      built: "A hardened AWS reference build: multi-tier VPC with public/private subnets and security groups, least-privilege IAM with MFA, KMS-encrypted S3/RDS, and centralized logging via CloudTrail, CloudWatch, and Config. Threat detection runs on GuardDuty, Security Hub, and Inspector, with Lambda-driven auto-remediation — all defined as code in CloudFormation.",
-      tools: "AWS VPC, IAM, KMS, S3, RDS, GuardDuty, Security Hub, Inspector, CloudTrail, Config, Lambda, CloudFormation.",
-      outcome: "A repeatable, least-privilege cloud baseline with real-time threat detection and automated response that can be stood up from a single template.",
-      link: "https://github.com/saivarmadpr/AWS-Cloud-Security-Project"
-    },
-    guardrail: {
-      title: "AI Guardrail Testing Lab",
-      problem: "Teams ship LLM features without knowing how much their guardrails actually stop, so prompt injection and data leakage slip through unnoticed.",
-      built: "A realistic agentic customer-support app (LangChain, 10 tools, multi-step reasoning) wired to run the same 60 adversarial scenarios in three modes: bare (no guardrails), proxy-only (LiteLLM gateway), and full (gateway + shield middleware). Each run produces a comparison report of pass-rates across attack categories.",
-      tools: "Python, LangChain, LiteLLM proxy, guardrail middleware, adversarial test harness, prompt-injection & jailbreak scenarios.",
-      outcome: "Clear, side-by-side evidence of how much each guardrail layer catches — turning 'we have guardrails' into a measurable coverage number.",
-      link: "https://github.com/saivarmadpr/guardrail-testing-platform"
+    attackid: {
+      title: "Attack Identification Tool",
+      problem: "Raw IDS/IPS logs from Suricata and Zeek are noisy, inconsistently formatted, and lack intelligent triage — overwhelming Tier 1 SOC analysts.",
+      built: "A SIEM pipeline that ingests raw threat datasets (ISCX, Zeek IoT), validates them through strict Pydantic schemas, normalizes across different log formats, and applies multi-dimensional heuristic risk scoring (severity, exploitability, CVE matching, target analysis) to produce a 0–100 risk score. Automated playbook responses block critical IPs, flag medium threats, and archive low-risk events. Results stream to a glassmorphism dashboard via WebSockets.",
+      tools: "Python, FastAPI, SQLite, Pydantic, WebSockets, HTML/CSS/JS (glassmorphism UI).",
+      outcome: "An automated, intelligent filter that replaces Tier 1 triage — only escalating verified, high-confidence threats to human analysts via a real-time command-center dashboard.",
+      link: "https://github.com/svemula17/attack_identification_tool"
     }
   };
 
