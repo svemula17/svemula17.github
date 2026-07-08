@@ -1449,3 +1449,151 @@ body.case-modal-open { overflow: hidden; }
   .contact-actions .btn-pill, .contact-actions .btn-ghost { justify-content: center; }
   .cert-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   Cinematic scroll journey — "open the laptop"
+   Default = stacked & fully visible (fallback / mobile / no-JS).
+   .is-cinematic (added by journey.js on desktop) = pinned overlap.
+   ========================================================= */
+.journey { position: relative; background: var(--bg); overflow: hidden; }
+.journey-stage { display: flex; align-items: center; justify-content: center; }
+.jstage-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--sp-20) var(--sp-6);
+}
+.journey-hint { display: none; }
+
+/* fallback stacked layout */
+.jscene {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto var(--sp-20);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.jscene:last-child { margin-bottom: 0; }
+.jscene-head { text-align: center; margin-bottom: var(--sp-10); }
+.jscene-head .eyebrow { color: var(--accent-2); }
+.jscene-head h2 { font-size: clamp(24px, 3.4vw, 42px); letter-spacing: -0.02em; }
+.jscene-sub { color: var(--muted); font-family: var(--font-mono); font-size: 13px; margin-top: var(--sp-2); }
+
+/* ----- Laptop (CSS 3D) ----- */
+.jscene--laptop { perspective: 1600px; }
+.laptop { width: min(760px, 82vw); }
+.laptop-lid { transform-origin: 50% 100%; transform-style: preserve-3d; }
+.laptop-screen {
+  position: relative;
+  aspect-ratio: 16 / 10.2;
+  border-radius: 14px 14px 4px 4px;
+  background: linear-gradient(158deg, #0b0f16, #0f1622 60%, #0b1119);
+  border: 2px solid #1b2330;
+  border-bottom-width: 3px;
+  overflow: hidden;
+  box-shadow: 0 44px 90px -34px rgba(0,0,0,.65), inset 0 0 0 1px rgba(255,255,255,.02);
+}
+.laptop-screen-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(120% 78% at 50% 0%, rgba(52,211,153,.18), transparent 58%);
+  pointer-events: none;
+}
+.laptop-screen-content {
+  position: relative; height: 100%;
+  display: flex; flex-direction: column; justify-content: center; gap: 10px;
+  padding: clamp(22px, 4.4vw, 52px);
+  text-align: left; color: #e7ecf3; font-family: var(--font-mono);
+}
+.jmac-dots { position: absolute; top: 16px; left: 18px; display: flex; gap: 7px; }
+.jmac-dots i { width: 11px; height: 11px; border-radius: 50%; background: #2a3444; }
+.jmac-dots i:nth-child(1) { background: #e5657b; }
+.jmac-dots i:nth-child(2) { background: #e3b341; }
+.jmac-dots i:nth-child(3) { background: #34d399; }
+.lsc-eyebrow { color: var(--accent-2); font-size: 13px; letter-spacing: .04em; }
+.lsc-name { font-family: var(--font-sans); font-weight: 600; font-size: clamp(24px, 4.4vw, 48px); color: #fff; letter-spacing: -0.02em; line-height: 1.05; }
+.lsc-role { color: #aeb7c6; font-size: clamp(13px, 1.7vw, 18px); }
+.lsc-tag { color: #7f8a99; font-size: 13px; }
+.laptop-base {
+  position: relative;
+  width: 112%; margin-left: -6%;
+  height: 18px;
+  border-radius: 3px 3px 16px 16px;
+  background: linear-gradient(180deg, #141b28, #0a0e15);
+  border: 2px solid #1b2330; border-top: none;
+  box-shadow: 0 34px 44px -22px rgba(0,0,0,.6);
+}
+.laptop-notch {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 15%; height: 6px; border-radius: 0 0 9px 9px; background: #1b2330;
+}
+
+/* ----- Experience cards ----- */
+.jrole-row { display: flex; gap: var(--sp-5); flex-wrap: wrap; justify-content: center; width: 100%; }
+.jrole-card {
+  flex: 1 1 280px; max-width: 340px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: var(--sp-6);
+}
+.jrole-co { font-family: var(--font-mono); color: var(--accent-2); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; }
+.jrole-title { font-size: 20px; font-weight: 600; color: var(--ink); margin: 4px 0 var(--sp-4); }
+.jrole-metrics li { display: flex; gap: 10px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+.jrole-metrics b { color: var(--ink); font-family: var(--font-mono); font-size: 15px; min-width: 62px; }
+
+/* ----- Tools ----- */
+.jtool-clusters { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--sp-6); max-width: 900px; width: 100%; }
+.jtool-label { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: var(--sp-3); }
+.jchip {
+  display: inline-block; margin: 0 6px 8px 0; padding: 7px 13px;
+  border: 1px solid var(--border); border-radius: 999px;
+  font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface);
+}
+
+/* ----- Certs wall ----- */
+.jcert-wall { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; max-width: 900px; width: 100%; }
+.jcert { border-radius: 8px; border: 1px solid var(--border); background: var(--surface); aspect-ratio: 4 / 3; object-fit: contain; padding: 5px; }
+
+/* ----- Projects finale ----- */
+.jproj-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); max-width: 1000px; width: 100%; }
+.jproj-card {
+  display: flex; flex-direction: column; gap: 10px; text-align: left;
+  border: 1px solid var(--border); border-radius: var(--r); overflow: hidden;
+  background: var(--surface); padding: 0 0 12px; cursor: pointer;
+  transition: transform .3s var(--ease), border-color .3s var(--ease);
+}
+.jproj-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; filter: grayscale(100%); transition: filter .4s var(--ease); }
+.jproj-card:hover { transform: translateY(-4px); border-color: var(--accent-2); }
+.jproj-card:hover img { filter: grayscale(0); }
+.jproj-name { font-size: 13px; font-weight: 600; color: var(--ink); padding: 0 12px; }
+.jproj-cta { margin-top: var(--sp-8); }
+
+/* ----- Cinematic mode (desktop, JS active) — ScrollTrigger pin manages length ----- */
+.journey.is-cinematic .jstage-inner { padding: var(--sp-12) var(--sp-6); }
+.journey.is-cinematic .journey-stage { height: 100vh; min-height: 640px; overflow: hidden; }
+.journey.is-cinematic .jstage-inner { height: 100%; display: flex; align-items: center; padding: var(--sp-12) var(--sp-6); }
+.journey.is-cinematic .jscene {
+  position: absolute; inset: 0; margin: 0; max-width: none;
+  justify-content: center; padding: 0 var(--sp-8); will-change: opacity, transform;
+}
+.journey.is-cinematic .journey-hint {
+  display: block; position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .jtool-clusters { grid-template-columns: 1fr; }
+  .jcert-wall { grid-template-columns: repeat(4, 1fr); }
+  .jproj-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .jcert-wall { grid-template-columns: repeat(3, 1fr); }
+  .jstage-inner { padding: var(--sp-16) var(--sp-5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey.is-cinematic { height: auto; }
+  .journey.is-cinematic .journey-stage { height: auto; min-height: 0; overflow: visible; }
+  .journey.is-cinematic .jstage-inner { display: block; height: auto; }
+  .journey.is-cinematic .jscene { position: relative; inset: auto; margin: 0 auto var(--sp-20); }
+  .journey-hint { display: none !important; }
+}
