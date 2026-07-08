@@ -72,14 +72,14 @@
   }
 
   /* ----- Auto-add reveal class to grouped items ----- */
-  document.querySelectorAll(".stat, .skill-card, .cert-card, .edu-card, .about-photo, .about-body")
+  document.querySelectorAll(".stat, .skill-group, .cert-card, .edu-card, .about-body")
     .forEach(el => {
       if (!el.classList.contains("reveal")) el.classList.add("reveal");
     });
 
   /* ----- Staggered reveals for grid children ----- */
   const STAGGER_MS = 80;
-  [".stats-grid", ".skills-grid", ".cert-grid"]
+  [".stats-grid", ".skills-matrix", ".cert-grid"]
     .forEach(sel => {
       document.querySelectorAll(sel).forEach(grid => {
         [...grid.children].forEach((child, i) => {
