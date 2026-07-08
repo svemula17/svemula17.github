@@ -660,198 +660,6 @@ p { margin: 0; }
 }
 
 /* =========================================================
-   Experience — sticky-scroll with year rail
-   ========================================================= */
-.experience { padding: 0; background: var(--surface); }
-
-.exp-scroller {
-  position: relative;
-  height: 300vh; /* 3 roles × 100vh */
-}
-.exp-stage {
-  position: sticky;
-  top: var(--nav-h);
-  height: calc(100vh - var(--nav-h));
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
-}
-/* subtle premium glow backdrop, fixed behind the sliding roles */
-.exp-stage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    radial-gradient(60% 60% at 82% 22%, var(--glow-1) 0%, transparent 60%),
-    radial-gradient(50% 55% at 12% 82%, var(--glow-2) 0%, transparent 62%);
-}
-.exp-stage-inner {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(28px, 5vh, 64px) 0;
-  gap: clamp(20px, 3vh, 40px);
-}
-.exp-head { flex: none; }
-.exp-head h2 {
-  font-size: clamp(24px, 2.6vw, 34px);
-  line-height: 1.15;
-  letter-spacing: -.02em;
-  font-weight: 600;
-}
-
-.exp-body {
-  flex: 1;
-  min-height: 0;
-  display: grid;
-  grid-template-columns: 1fr 116px;
-  gap: clamp(32px, 5vw, 72px);
-  align-items: stretch;
-}
-
-.exp-slides { position: relative; }
-.exp-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--sp-3);
-  opacity: 0;
-  transform: translateY(14px);
-  pointer-events: none;
-  transition: opacity 500ms var(--ease), transform 500ms var(--ease);
-}
-.exp-slide.is-active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Staggered entrance — each line slides in from the right as the slide activates */
-.exp-slide .exp-date,
-.exp-slide .exp-company,
-.exp-slide h3,
-.exp-slide ul li {
-  opacity: 0;
-  transform: translateX(38px);
-  transition: opacity 560ms var(--ease), transform 560ms var(--ease);
-}
-.exp-slide.is-active .exp-date,
-.exp-slide.is-active .exp-company,
-.exp-slide.is-active h3,
-.exp-slide.is-active ul li {
-  opacity: 1;
-  transform: none;
-}
-.exp-slide.is-active .exp-date         { transition-delay: 90ms; }
-.exp-slide.is-active .exp-company      { transition-delay: 160ms; }
-.exp-slide.is-active h3                { transition-delay: 230ms; }
-.exp-slide.is-active ul li:nth-child(1){ transition-delay: 320ms; }
-.exp-slide.is-active ul li:nth-child(2){ transition-delay: 390ms; }
-.exp-slide.is-active ul li:nth-child(3){ transition-delay: 460ms; }
-
-.exp-date { color: var(--muted); margin: 0; }
-.exp-company {
-  font-size: var(--fs-md);
-  font-weight: 600;
-  color: var(--ink);
-  margin: 0;
-}
-.exp-slide h3 {
-  font-size: clamp(26px, 3vw, 40px);
-  line-height: 1.1;
-  letter-spacing: -.02em;
-  margin: var(--sp-1) 0 var(--sp-3);
-}
-.exp-slide ul {
-  display: grid;
-  gap: var(--sp-3);
-  max-width: 56ch;
-}
-.exp-slide li {
-  position: relative;
-  padding-left: var(--sp-5);
-  font-size: var(--fs-base);
-  color: var(--muted);
-  line-height: 1.6;
-}
-.exp-slide li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 12px;
-  width: 8px;
-  height: 1px;
-  background: var(--muted-2);
-}
-
-/* Year rail */
-.exp-rail {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--sp-3);
-}
-.exp-rail-cap {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-}
-.exp-rail-line {
-  position: relative;
-  flex: 1;
-  width: 2px;
-  background: var(--border);
-  margin-left: 6px;
-}
-.exp-rail-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background: var(--ink);
-  transition: height 220ms var(--ease);
-}
-.exp-rail-tick {
-  position: absolute;
-  left: 0;
-  transform: translate(-7px, -50%);
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  white-space: nowrap;
-}
-.exp-rail-tick i {
-  width: 14px;
-  height: 14px;
-  border-radius: var(--r-pill);
-  background: var(--bg);
-  border: 2px solid var(--border-2);
-  flex: none;
-  transition: border-color 220ms var(--ease), background-color 220ms var(--ease), transform 220ms var(--ease);
-}
-.exp-rail-tick b {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  letter-spacing: .06em;
-  color: var(--muted-2);
-  transition: color 220ms var(--ease);
-}
-.exp-rail-tick.is-reached i { border-color: var(--ink); }
-.exp-rail-tick.is-active i { background: var(--ink); border-color: var(--ink); transform: scale(1.1); }
-.exp-rail-tick.is-active b { color: var(--ink); }
-
-/* =========================================================
    Skills
    ========================================================= */
 .skills-matrix {
@@ -1313,10 +1121,6 @@ body.case-modal-open { overflow: hidden; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
   .nav { transition: none; }
-  .exp-slide .exp-date,
-  .exp-slide .exp-company,
-  .exp-slide h3,
-  .exp-slide ul li { opacity: 1; transform: none; transition: none; }
   .type-caret { animation: none; }
 }
 
@@ -1365,48 +1169,6 @@ body.case-modal-open { overflow: hidden; }
   }
   .proj-text h3 { font-size: clamp(26px, 5vw, 36px); }
   .proj-progress { display: none; }
-
-  /* Experience — drop sticky-scroll, stack normally */
-  .experience { padding: clamp(64px, 10vh, 96px) 0; }
-  .exp-scroller { height: auto; }
-  .exp-stage {
-    position: relative;
-    height: auto;
-    display: block;
-    overflow: hidden;
-  }
-  .exp-stage-inner {
-    position: static;
-    display: block;
-    padding: 0;
-    max-width: 100%;
-  }
-  .exp-head { margin-bottom: clamp(32px, 6vh, 56px); }
-  .exp-body { display: block; }
-  .exp-slides {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-10);
-  }
-  .exp-slide {
-    position: static;
-    inset: auto;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-    transition: none;
-    padding-top: var(--sp-8);
-    border-top: 1px solid var(--border);
-  }
-  .exp-slide:first-child { border-top: 0; padding-top: 0; }
-  .exp-slide h3 { font-size: clamp(24px, 5vw, 32px); }
-  /* show all slide content statically — no sticky entrance on mobile */
-  .exp-slide .exp-date,
-  .exp-slide .exp-company,
-  .exp-slide h3,
-  .exp-slide ul li { opacity: 1; transform: none; transition: none; }
-  .exp-rail { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -1460,6 +1222,10 @@ body.case-modal-open { overflow: hidden; }
    Not inherited, so set it on both html and body. */
 html, body { overflow-anchor: none; }
 
+/* immersive mode — the site nav slides away while the laptop OS is pinned,
+   like a macOS full-screen app hiding the menu bar */
+.nav.nav--journey-hide { transform: translateY(-100%); }
+
 .journey { position: relative; background: var(--bg); overflow: hidden; }
 .journey-stage { display: flex; align-items: center; justify-content: center; }
 .jstage-inner {
@@ -1500,28 +1266,22 @@ html, body { overflow-anchor: none; }
   box-shadow: 0 44px 90px -34px rgba(0,0,0,.65), inset 0 0 0 1px rgba(255,255,255,.02);
 }
 /* fixed screen ratio only in cinematic mode; fallback lets the screen grow with content */
-.journey.is-cinematic .laptop-screen { aspect-ratio: 16 / 10.2; }
+.journey.is-cinematic .laptop-screen { aspect-ratio: 16 / 10.8; }
 .laptop-screen-glow {
   position: absolute; inset: 0;
-  background: radial-gradient(120% 78% at 50% 0%, rgba(52,211,153,.18), transparent 58%);
+  background: radial-gradient(120% 78% at 50% 0%, rgba(52,211,153,.14), transparent 58%);
   pointer-events: none;
 }
-/* boot splash — overlay in cinematic (GSAP fades it), hidden in fallback */
-.laptop-screen-content {
-  display: none;
-  flex-direction: column; justify-content: center; gap: 10px;
-  padding: clamp(22px, 4.4vw, 52px);
-  text-align: left; color: #e7ecf3; font-family: var(--font-mono);
-}
-.journey.is-cinematic .laptop-screen-content {
-  display: flex;
-  position: absolute; inset: 0; z-index: 2;
+/* desktop wallpaper — emerald aurora on deep navy */
+.os-wallpaper {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(90% 80% at 18% 88%, rgba(52,211,153,.20), transparent 55%),
+    radial-gradient(70% 65% at 85% 12%, rgba(56,189,248,.14), transparent 60%),
+    radial-gradient(50% 45% at 62% 75%, rgba(99,44,166,.16), transparent 62%),
+    linear-gradient(160deg, #0d1420, #0a0f18 55%, #0b111c);
   pointer-events: none;
 }
-.lsc-eyebrow { color: var(--accent-2); font-size: 13px; letter-spacing: .04em; }
-.lsc-name { font-family: var(--font-sans); font-weight: 600; font-size: clamp(24px, 4.4vw, 48px); color: #fff; letter-spacing: -0.02em; line-height: 1.05; }
-.lsc-role { color: #aeb7c6; font-size: clamp(13px, 1.7vw, 18px); }
-.lsc-tag { color: #7f8a99; font-size: 13px; }
 .laptop-base {
   position: relative;
   width: 112%; margin-left: -6%;
@@ -1541,32 +1301,47 @@ html, body { overflow-anchor: none; }
 .journey.is-cinematic .os { position: absolute; inset: 0; }
 
 .os-menubar {
+  position: relative; z-index: 3;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 7px 14px;
-  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em;
-  color: #7f8a99;
-  background: rgba(255,255,255,.03);
+  padding: 6px 14px;
+  font-family: var(--font-sans); font-size: 12px;
+  color: #cdd3dd;
+  background: rgba(10,14,20,.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
+.os-menu-left, .os-menu-right { display: inline-flex; align-items: center; gap: 14px; }
+.os-apple { color: #e7ecf3; flex: none; }
+/* active app name — three overlapping spans, GSAP crossfades in cinematic */
+.os-appnames { display: inline-grid; }
+.os-appname { grid-area: 1 / 1; font-weight: 600; font-size: 12.5px; color: #fff; white-space: nowrap; }
+.os-appname:not(:first-child) { visibility: hidden; }
+.os-menus { display: inline-flex; gap: 12px; color: #9aa3b2; font-size: 12px; }
+.os-menus i { font-style: normal; }
+.os-glyph { color: #cdd3dd; flex: none; }
+.os-clock { font-size: 11.5px; color: #cdd3dd; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
-/* fallback: windows stack in normal flow; cinematic: absolute stage, GSAP swaps them */
+/* fallback: windows stack in normal flow; cinematic: maximized app windows */
 .os-windows { display: flex; flex-direction: column; gap: 14px; padding: 14px; }
-.journey.is-cinematic .os-windows { display: block; flex: 1; position: relative; padding: 0; }
+.journey.is-cinematic .os-windows { display: block; flex: 1; position: relative; padding: 0; min-height: 0; }
 
 .os-window {
-  background: linear-gradient(170deg, #121826, #0e141f);
+  background: linear-gradient(170deg, rgba(18,24,38,.96), rgba(13,18,29,.96));
   border: 1px solid rgba(255,255,255,.1);
-  border-radius: 10px;
-  box-shadow: 0 18px 50px -18px rgba(0,0,0,.7);
+  border-radius: 11px;
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,.75);
   overflow: hidden;
 }
 .journey.is-cinematic .os-window {
-  position: absolute; left: 6%; right: 6%; top: 50%;
+  position: absolute; inset: 8px 12px 10px;
+  display: flex; flex-direction: column;
   will-change: opacity, transform;
 }
+.journey.is-cinematic .os-window .os-body { flex: 1; min-height: 0; overflow: hidden; }
 .os-titlebar {
   display: flex; align-items: center; gap: 10px;
-  padding: 8px 12px;
+  padding: 6px 12px;
   background: rgba(255,255,255,.04);
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
@@ -1577,60 +1352,84 @@ html, body { overflow-anchor: none; }
 .os-dots i:nth-child(3) { background: #34d399; }
 .os-title { font-family: var(--font-mono); font-size: 11px; color: #8b95a5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.os-body { padding: 16px 20px 18px; text-align: left; }
-.os-role { font-weight: 600; font-size: clamp(16px, 1.8vw, 21px); color: #fff; letter-spacing: -.01em; }
-.os-dates { font-family: var(--font-mono); font-size: 12px; color: #7f8a99; margin: 3px 0 12px; }
-.os-metrics li {
-  display: flex; gap: 12px; align-items: baseline;
-  padding: 7px 0; border-top: 1px solid rgba(255,255,255,.07);
-  color: #aeb7c4; font-size: 13.5px;
+.os-body { padding: 12px 18px 12px; text-align: left; }
+.os-winhead { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 18px; flex-wrap: wrap; }
+.os-role { font-weight: 600; font-size: clamp(15px, 1.7vw, 20px); color: #fff; letter-spacing: -.01em; }
+.os-dates { font-family: var(--font-mono); font-size: 11.5px; color: #7f8a99; }
+.os-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 10px; }
+.os-chip {
+  padding: 4px 10px; border-radius: 7px;
+  background: rgba(52,211,153,.09); border: 1px solid rgba(52,211,153,.22);
+  font-family: var(--font-mono); font-size: 11px; color: #aeb7c4; white-space: nowrap;
 }
-.os-metrics b { color: #e7ecf3; font-family: var(--font-mono); font-size: 14px; min-width: 64px; font-weight: 500; }
-.os-points { margin-top: 12px; }
+.os-chip b { color: #7ef0c0; font-weight: 500; }
+.os-points { border-top: 1px solid rgba(255,255,255,.07); padding-top: 8px; }
 .os-points li {
-  position: relative; padding: 3px 0 3px 16px;
-  color: #8b95a5; font-size: 12.5px; line-height: 1.55;
+  position: relative; padding: 3px 0 3px 17px;
+  color: #9aa3b2; font-size: 12px; line-height: 1.5;
 }
 .os-points li::before { content: "▸"; position: absolute; left: 0; color: var(--accent-2); }
 
-/* dock — cinematic only */
-.os-dock { display: none; }
-.journey.is-cinematic .os-dock {
-  display: flex; gap: 12px; align-self: center;
-  margin: 0 auto 12px;
-  padding: 8px 14px 10px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.09);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+/* dock + timeline progress — cinematic only */
+.os-dockwrap { display: none; }
+.journey.is-cinematic .os-dockwrap {
+  display: flex; flex-direction: column; align-items: stretch; gap: 6px;
+  width: max-content; margin: 0 auto 8px;
+}
+.os-dock {
+  display: flex; gap: 16px;
+  padding: 8px 14px 6px;
+  background: rgba(14,20,30,.55);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 .dock-app {
   position: relative;
-  display: grid; place-items: center;
-  width: 44px; height: 44px;
-  border-radius: 11px;
-  background: linear-gradient(170deg, rgba(52,211,153,.16), rgba(52,211,153,.05));
-  border: 1px solid rgba(255,255,255,.12);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
   cursor: pointer;
 }
-.dock-glyph { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: #d9fbe9; letter-spacing: .02em; }
-.dock-label {
-  position: absolute; bottom: calc(100% + 9px); left: 50%; transform: translateX(-50%);
-  padding: 3px 9px; border-radius: 6px;
-  background: rgba(8,12,18,.88); border: 1px solid rgba(255,255,255,.1);
-  font-family: var(--font-mono); font-size: 10.5px; color: #cdd3dd; white-space: nowrap;
-  opacity: 0; pointer-events: none; transition: opacity .18s var(--ease);
+.dock-glyph {
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  border-radius: 11px;
+  color: #fff; font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: .02em;
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.28);
 }
+.dock-app[data-app="datadog"]      .dock-glyph { background: linear-gradient(170deg, #8b5cf6, #632CA6); }
+.dock-app[data-app="browserstack"] .dock-glyph { background: linear-gradient(170deg, #fb923c, #d9640e); }
+.dock-app[data-app="nseit"]        .dock-glyph { background: linear-gradient(170deg, #60a5fa, #2563eb); }
 .dock-dot {
-  position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%);
   width: 4px; height: 4px; border-radius: 50%;
   background: var(--accent-2);
   opacity: 0; /* GSAP lights the active app's dot */
 }
+.dock-year { font-family: var(--font-mono); font-size: 10.5px; color: #9aa3b2; letter-spacing: .05em; }
+.dock-label {
+  position: absolute; bottom: calc(100% + 9px); left: 50%; transform: translateX(-50%);
+  padding: 3px 9px; border-radius: 6px;
+  background: rgba(8,12,18,.9); border: 1px solid rgba(255,255,255,.1);
+  font-family: var(--font-mono); font-size: 10.5px; color: #cdd3dd; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity .18s var(--ease);
+  z-index: 4;
+}
+.dock-progress {
+  height: 3px; margin: 0 8px;
+  border-radius: 99px;
+  background: rgba(255,255,255,.1);
+  overflow: hidden;
+}
+.dock-progress-fill {
+  display: block; height: 100%; width: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #34d399, #7ef0c0);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
 @media (pointer: fine) {
-  .dock-app { transition: transform .18s var(--ease); }
-  .dock-app:hover { transform: translateY(-6px) scale(1.16); }
+  .dock-glyph { transition: transform .18s var(--ease); }
+  .dock-app:hover .dock-glyph { transform: translateY(-6px) scale(1.16); }
   .dock-app:hover .dock-label { opacity: 1; }
 }
 
@@ -1641,7 +1440,8 @@ html, body { overflow-anchor: none; }
   position: absolute; inset: 0; margin: 0; max-width: none;
   justify-content: center; padding: 0 var(--sp-8); will-change: opacity, transform;
 }
-.journey.is-cinematic .laptop { width: min(820px, 86vw); }
+/* width also capped by viewport height so the zoomed laptop always fits */
+.journey.is-cinematic .laptop { width: min(900px, 88vw, calc((100vh - 40px) * 1.2)); }
 .journey.is-cinematic .journey-hint {
   display: block; position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
   font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--muted);
@@ -1649,8 +1449,9 @@ html, body { overflow-anchor: none; }
 
 @media (max-width: 560px) {
   .jstage-inner { padding: var(--sp-16) var(--sp-5); }
-  .os-body { padding: 13px 14px 15px; }
-  .os-metrics b { min-width: 54px; }
+  .os-body { padding: 12px 14px 14px; }
+  .os-menus { display: none; }
+  .os-clock { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .journey.is-cinematic { height: auto; }
